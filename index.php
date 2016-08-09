@@ -15,6 +15,9 @@
 				<i class="fa fa-laptop"></i>
                                 <h4>PLACE YOUR SUPPORT TICKET HERE</h4>
                                 <p>We will get back to you shortly!</p>
+                                <button class="btn">View ticket</button>
+
+                                <button class="btn">Submit ticket</button>
 			</div><!-- col-lg-4 -->
 			<div class="col-lg-4">
 			</div><!-- col-lg-4 -->
@@ -22,6 +25,8 @@
 		<br>
 		<br>
 	</div><!-- container -->
+
+
 
 <?php
 	include_once "footer.php" 
