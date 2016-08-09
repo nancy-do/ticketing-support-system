@@ -14,7 +14,9 @@
 /* OVERALL ASPECT */
 
 body {
-  background-color: #f2f2f2;
+    opacity: 1;
+    transition: 1s opacity;
+    background-color: #f2f2f2;
     font-family: "Lato";
     font-weight: 300;
     font-size: 16px;
@@ -24,6 +26,11 @@ body {
     -webkit-overflow-scrolling: touch;
     
     margin-top: 70px;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 /* Titles */
@@ -95,7 +102,7 @@ a:after {
 }
 
 .navbar-inverse .navbar-nav > .active > a {
-	background: #ff7878
+	background: #ff7878;
 }
 
 .navbar-inverse .navbar-brand {
@@ -133,14 +140,14 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/header-bg.jpg) no-repeat center top;
+        background: url(../img/header-bg.jpg) no-repeat center top; 
 	margin-top: -10px;
 	padding-top:20px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 500px;
-	width: 100%;
+	width: 100%; 
 	
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
@@ -204,6 +211,10 @@ a:after {
 #r h4 {
 	color: white;
 	font-weight: 700;
+}
+
+li.active {
+    background: #ff7878; 
 }
 
 #r p {
