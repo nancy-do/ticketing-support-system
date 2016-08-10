@@ -1,9 +1,6 @@
 <?php
-	include_once("header.php"); 
- ?>
-
- <?php
-	include_once("title.php"); 
+	include_once ('header.php');
+	include_once ('title.php');
  ?>
 
 	<div class="container w">
@@ -29,7 +26,7 @@
 
 
 <?php
-	include_once "footer.php" 
+	include_once ('footer.php');
  ?>
   </body>
 </html>
