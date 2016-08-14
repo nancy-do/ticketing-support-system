@@ -8,39 +8,44 @@
 				<i class="fa fa-laptop"></i>
                 <h4>PLACE YOUR SUPPORT TICKET HERE</h4>
                 <p>We will get back to you shortly!</p>
-                <button id="btn" class="btn">View ticket</button>
+                <button id="btn" class="btn btn-danger">View ticket</button>
 
                 <div id="form" class="result" style="display:none;">
 
                     <hr>
 
-                    <h4>CONTACT FORM</h4>
+                    <div class="contact">
 
-                    <form name = "myform" action = "index.php?page=submit" method = "GET" id="reg-form">
+                        <h4>CONTACT FORM</h4>
 
-                        <p><strong>First Name: </strong><input required type="text" name = "firstName" id = "firstName"></p>
+                        <form name = "myform" action = "index.php?page=submit" method = "GET" id="reg-form">
 
-                        <p><strong>Last Name: </strong><input required type="text" name = "lastName" id = "lastName"></p>
+                            <label><strong>First Name: </strong></label><input required type="text" name = "firstName" id = "firstName" autocapitalize="words" />
 
-                        <p><strong>Operating System </strong>
-                        <select required name = "os" id = "os">
-                            <option value="Microsoft Windows">Microsoft Windows</option>
-                            <option value="Mac OS">Mac OS</option>
-                            <option value="Linux">Linux</option>
-                        </select>
-                        </p>
+                            <label><strong>Last Name: </strong></label><input required type="text" name = "lastName" id = "lastName" autocapitalize="words" />
 
-                        <p><strong>Email: </strong><input required type="text" name = "email" id = "email"></p>
+                            <label><strong>Operating System </strong></label>
+                            <select required name = "os" id = "os">
+                                <option value="Microsoft Windows">Microsoft Windows</option>
+                                <option value="Mac OS">Mac OS</option>
+                                <option value="Linux">Linux</option>
+                            </select>
 
-                        <p><strong>Issue: <br></strong>
-                        <textarea required name = "issue" id = "issue" rows="4" cols="40"></textarea></p>
+                            <label><strong>Email: </strong></label><input required type="email" name = "email" id = "email">
 
-                        <p><strong>Comment: <br></strong>
-                        <textarea required name = "comments" id = "comments" rows="4" cols="40"></textarea></p>
+                            <label><strong>Issue: </strong></label>
+                            <textarea required name = "issue" id = "issue" autocapitalize="sentences"></textarea>
 
-                        <button class="btn" type="submit" id="submit">Submit</button>
+                            <label><strong>Comment: </strong></label>
+                            <textarea required name = "comments" id = "comments" autocapitalize="sentences"></textarea>
 
-                    </form>
+                            <div style="text-align:center">
+                                <button class="btn btn-default" type="submit" id="submit">Submit</button>
+                            </div>
+
+                        </form>
+
+                    </div>
 
                 </div>
 

@@ -5,6 +5,6 @@
 $(document).ready(function(){
     $("#btn").click(function(){
 
-        $("#form").fadeIn("slow");
+        $("#form").fadeIn(3000);
     });
 });

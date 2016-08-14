@@ -346,6 +346,7 @@ li.active {
 
 .w h4 {
 	font-weight: 700;
+    margin-top: 25px;
     margin-bottom: 25px;
 }
 
@@ -527,17 +528,35 @@ td, th {
     background: #ff7878;
 }
 
-input[type=text] {
-    border: 1px dotted #999;
-    border-radius: 0;
-
-    -webkit-appearance: none;
+.contact label {
+    color: #F96D6E;
+    font-weight: 600;
+    font-size: 14px;
 }
 
-button, input, select, textarea {
-    font-family : inherit;
-    font-size   : 100%;
+.contact input[type="text"], .contact input[type="email"], .contact select, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    outline: none;
+    color: #000;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #848484;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 }
 
+.contact {
+    margin: 0 auto;
+    color: #000;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+}
+
+select {
+    text-align-last: center;
+}
 
 
