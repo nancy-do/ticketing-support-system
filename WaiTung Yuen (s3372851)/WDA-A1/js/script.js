@@ -15,7 +15,7 @@ $(document).ready(function()
             data : data,
             success :  function(data)
             {
-                $("#reg-col-lg-5").fadeOut(500).hide(function()
+                $("#reg-ticket").fadeOut(500).hide(function()
                 {
                     $("#reg-form").fadeOut(500).hide(function()
                     {

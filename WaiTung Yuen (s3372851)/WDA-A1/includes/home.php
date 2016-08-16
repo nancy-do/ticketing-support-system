@@ -3,14 +3,17 @@
 
             <div class="col-lg-4">
 
-                <div class="col-lg-5" id="reg-col-lg-5">
+            </div><!-- col-lg-4 -->
+            <div class="col-lg-4">
+
+                <div class="support-ticket" id="reg-ticket">
                     <i class="fa fa-laptop"></i>
                     <h4>PLACE YOUR SUPPORT TICKET HERE</h4>
                     <p>We will get back to you shortly!</p>
 
                     <button id="btn" class="btn btn-danger">View ticket</button>
 
-                </div><!-- col-lg-5 -->
+                </div><!-- col-lg -->
 
                 <div id="form" class="result" style="display:none;">
 
