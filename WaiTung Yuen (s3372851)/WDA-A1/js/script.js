@@ -15,14 +15,16 @@ $(document).ready(function()
             data : data,
             success :  function(data)
             {
-                $("#reg-form").fadeOut(500).hide(function()
+                $("#reg-col-lg-5").fadeOut(500).hide(function()
                 {
-                    $(".result").fadeIn(500).show(function()
+                    $("#reg-form").fadeOut(500).hide(function()
                     {
-                        $(".result").html(data);
+                        $(".result").fadeIn(500).show(function()
+                        {
+                            $(".result").html(data);
+                        });
                     });
                 });
-
             }
         });
         return false;

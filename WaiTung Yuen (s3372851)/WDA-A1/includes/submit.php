@@ -18,7 +18,7 @@ if($_GET)
 
     ?>
 
-    <p>Ticket Added!</p>
+    <p>Your support ticket has been successfully created! Please allow up to 24 hours for a response.</p>
     <p>Please click on the <a href="index.php?page=results">link</a> to see all the tickets.</p>
 
     <?php

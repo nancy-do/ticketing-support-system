@@ -15,7 +15,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-	<script src="js/fadeIn.js"></script>
+	<script src="js/toggle.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/script.js"></script>
 	<!--<script src="js/validateForm.js"></script>-->
