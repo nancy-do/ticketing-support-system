@@ -13,6 +13,34 @@
 
 /* OVERALL ASPECT */
 
+/* Android phone, smartphones, landscape iPhone */
+@media only screen and (min-width: 145px){
+    #headerwrap h1 {
+        margin-top: 12%;
+        margin-bottom: 12%;
+        color: white;
+        letter-spacing: 3px;
+    }
+
+    h1, .h1 {
+        font-size: 130%;
+    }
+}
+
+/* iPads (landscape) */
+@media only screen and (min-width: 800px){
+    #headerwrap h1 {
+        margin-top: 14%;
+        margin-bottom: 14%;
+        color: white;
+        letter-spacing: 3px;
+    }
+
+    h1, .h1 {
+        font-size: 200%;
+    }
+}
+
 body {
     opacity: 1;
     transition: 1s opacity;
@@ -24,8 +52,51 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
-    
+
     margin-top: 70px;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
 }
 
 body.fade-out {
@@ -43,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Paragraph & Typographic */
 p {
-    line-height: 28px;
+    /*line-height: 28px;*/
     margin-bottom: 25px;
 }
 
@@ -126,7 +197,7 @@ a:after {
       -ms-transition: all 0.5s ease;
           transition: all 0.5s ease;
 }
- 
+
 .tilt:hover {
   -webkit-transform: rotate(-10deg);
      -moz-transform: rotate(-10deg);
@@ -140,32 +211,42 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-        background: url(../img/header-bg.jpg) no-repeat center top; 
-	margin-top: -10px;
+    background: url(../img/header-bg.jpg) no-repeat center top;
+	/*margin-top: -10px;
 	padding-top:20px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 500px;
-	width: 100%; 
-	
+	width: 100%;*/
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
     background-size: 100%;
 
-    -webkit-background-size: cover;
+    /*-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover;*/
 }
 
-#headerwrap h1 {
-	margin-top: 100px;
-	color: white;
-	font-size: 70px;
-	font-weight: 300;
-	letter-spacing: 3px;
+@media only screen and (min-width: 1200px) {
+    #headerwrap h1 {
+        /*margin-top: 100px;*/
+        margin-top: 20%;
+        margin-bottom: 20%;
+        color: white;
+        /*font-size: 70px;
+        font-weight: 300;*/
+        letter-spacing: 3px;
+    }
+
+    h1,
+    .h1 {
+        /*font-size: 36px;*/
+        font-size: 300%;
+    }
 }
 
 #headerwrap h2 {
@@ -214,7 +295,7 @@ a:after {
 }
 
 li.active {
-    background: #ff7878; 
+    background: #ff7878;
 }
 
 #r p {
@@ -265,6 +346,8 @@ li.active {
 
 .w h4 {
 	font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .w i {
@@ -321,13 +404,38 @@ li.active {
 
 .modal-footer {
 	background: #f2f2f2;
-	margin-top: 0px; 
+	margin-top: 0px;
 }
 
 /* ==========================================================================
    Pricing Tables
    ========================================================================== */
-   
+
+/*
+Generic Styling, for Desktops/Laptops
+*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
 .pricing-option {
     padding-bottom: 40px;
 }
@@ -418,6 +526,37 @@ li.active {
 
 .pricing-option .pricing-signup:hover {
     background: #ff7878;
+}
+
+.contact label {
+    color: #F96D6E;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact input[type="text"], .contact input[type="email"], .contact select, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    outline: none;
+    color: #000;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #848484;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.contact {
+    margin: 0 auto;
+    color: #000;
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+}
+
+select {
+    text-align-last: center;
 }
 
 
