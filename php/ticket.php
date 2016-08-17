@@ -49,12 +49,7 @@ class Ticket
 
     public function getComments()
     {
-        if (isset($this->comments))
-        {
-            return $this->comments;
-        }
-
-        return "<NO COMMENTS>";
+        return $this->comments;
     }
 
     public function setName($first, $last)
@@ -98,7 +93,13 @@ $ticket->addComment("ITS: YOUR PC IS FUCKED BRAH");
             echo $ticket->getEmail() . "<br>";
             echo $ticket->getOS() . "<br>";
             echo $ticket->getIssue() . "<br>";
-            echo $ticket->getComments() . "<br>";
+
+            $array = $ticket->getComments();
+            
+            for ($i = 0; $i < count($array); $i++)
+            {
+                echo $array[$i] . "<br>";
+            }
         ?>
     </div>
 </body>
