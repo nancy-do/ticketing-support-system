@@ -8,19 +8,19 @@ $("#submit").click(function(){
     var rIssue = new RegExp (/^.{1,}$/i);
 
     /* Check if First name or Last name is valid */
-    if ( (rName.test($("#fName").val()) == false)||(rName.test($("#lName").val())== false) ){
+    if ( (rName.test($("#firstName").val()) == false)||(rName.test($("#lastName").val())== false) ){
         alert("Invalid Name");
         return false;
     }
 
     /* Check if it is a valid rmit email */
-    if ( (rEmail.test($("#Email").val())) == false) {
+    if ( (rEmail.test($("#email").val())) == false) {
      alert("Invalid Email");
      return false;
      }
 
     /* Check if the Issue is empty */
-    if ( (rIssue.test($("#Issue").val())) == false ) {
+    if ( (rIssue.test($("#issue").val())) == false ) {
         alert("Issue cannot be empty");
         return false;
     }
