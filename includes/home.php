@@ -32,7 +32,7 @@
                             <label><strong>Ticket ID: </strong></label>
                             <input required type="text" name = "vTicket" id ="tickedID" autocapitalize="words"/>
                             <div style="text-align:center">
-                                <button id="btn-view" class="btn btn-danger">View ticket</button>
+                                <button id="btn-view" class="btn btn-danger" type="submit">View ticket</button>
                             </div>
                         </form>
 
