@@ -27,10 +27,15 @@ class Ticket
         return $this->id;
     }
 
-    public function getName()
+    public function getLast()
     {
-        return $this->firstName . " " . $this->lastName;
+        return $this->lastName;
     }
+
+    public function getFirst()
+    {
+        return $this->firstName;
+    } 
 
     public function getEmail()
     {
@@ -89,7 +94,7 @@ $ticket->addComment("ITS: YOUR PC IS FUCKED BRAH");
     <div>
         <?php
             echo $ticket->getID() . "<br>";
-            echo $ticket->getName() . "<br>";
+            echo $ticket->getFirst() . $ticket->getLast() . "<br>";
             echo $ticket->getEmail() . "<br>";
             echo $ticket->getOS() . "<br>";
             echo $ticket->getIssue() . "<br>";
