@@ -1,10 +1,7 @@
     <div class="container w">
 		<div class="row centered">
 
-            <div class="col-lg-4">
-
-            </div><!-- col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-12">
 
                 <div class="support-ticket" id="reg-ticket">
                     <i class="fa fa-laptop"></i>
@@ -55,9 +52,7 @@
                 </div>
 
             </div><!-- col-lg-4 -->
-            <div class="col-lg-4">
 
-            </div><!-- col-lg-4 -->
 		</div><!-- row -->
 
 	</div><!-- container -->
