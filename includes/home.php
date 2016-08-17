@@ -1,14 +1,14 @@
     <div class="container w">
 		<div class="row centered">
 
-            <div class="col-lg-12">
+            <div class="col-lg-6">
 
                 <div class="support-ticket" id="reg-ticket">
                     <i class="fa fa-laptop"></i>
-                    <h4>PLACE YOUR SUPPORT TICKET HERE</h4>
+                    <h4>SUBMIT SUPPORT TICKET HERE</h4>
                     <p>We will get back to you shortly!</p>
 
-                    <button id="btn" class="btn btn-danger">View ticket</button>
+                    <button id="btn" class="btn btn-danger">Submit ticket</button>
 
                 </div><!-- col-lg -->
 
@@ -53,6 +53,27 @@
 
             </div><!-- col-lg-4 -->
 
-		</div><!-- row -->
+            <div class="col-lg-6">
 
-	</div><!-- container -->
+                <div class="support-ticket" id="view-ticket">
+                    <i class="fa fa-laptop"></i>
+                    <h4>VIEW YOUR TICKET HERE</h4>
+                    <p>We will get back to you shortly!</p>
+
+                    <button id="btn" class="btn btn-danger">View ticket</button>
+
+
+                    <div id="form-view" class="result" style="display:none;">
+                        <h4>Enter ticket ID</h4>
+                        <form name = "myform" action = "index.php?page=submit" method = "GET" id="reg-form">
+                            <label><strong>Ticket ID: </strong></label><input required name = "ticket-id" id = "ticket-id">
+                            <button class="btn btn-default" type="submit" id="submit">Submit</button>
+                        </form>
+
+                    </div>
+                </div><!-- col-lg -->
+            </div><!-- col-lg-4 -->
+
+	</div><!-- row -->
+
+</div><!-- container -->
