@@ -51,14 +51,7 @@ class Ticket
     {
         if (isset($this->comments))
         {
-            $data = "";
-
-            foreach ($this->comments as $val)
-            {
-                $data .= $val . "<br>";
-            }
-
-            return $data;
+            return $this->comments;
         }
 
         return "<NO COMMENTS>";
@@ -85,7 +78,7 @@ class Ticket
         $this->issue = $issue;
     }
 
-    public function addComments($comment)
+    public function addComment($comment)
     {
         $this->comments[] = $comment;
     }
@@ -93,7 +86,7 @@ class Ticket
 
 /* debug bs - uncomment to test */
 $ticket = new Ticket(session_id(), "Johhny", "Kronsky", "johnnyk@gmail.com", "Windows 7", "DOESN'T START MOFO", "I PRESS THE BUTTON AND IT DOESN'T WORK");
-$ticket->addComments("ITS: YOUR PC IS FUCKED BRAH");
+$ticket->addComment("ITS: YOUR PC IS FUCKED BRAH");
 ?>
 <!doctype html>
 <html>
