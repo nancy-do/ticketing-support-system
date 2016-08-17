@@ -1,32 +1,27 @@
 <?php
-	include_once ('header.php');
-	include_once ('title.php');
- ?>
 
-	<div class="container w">
-		<div class="row centered">
-			<br><br>
-			<div class="col-lg-4">
-			</div><!-- col-lg-4 -->
-			<div class="col-lg-4">
-				<i class="fa fa-laptop"></i>
-                                <h4>PLACE YOUR SUPPORT TICKET HERE</h4>
-                                <p>We will get back to you shortly!</p>
-                                <button class="btn">View ticket</button>
+include_once("includes/header.php");
+include_once("includes/navbar.php");
 
-                                <button class="btn">Submit ticket</button>
-			</div><!-- col-lg-4 -->
-			<div class="col-lg-4">
-			</div><!-- col-lg-4 -->
-		</div><!-- row -->
-		<br>
-		<br>
-	</div><!-- container -->
+$page = '';
+if (isset($_GET['page']))
+    $page = $_GET['page'];
 
+if ($page == "faqs")
+{
+	include_once("includes/faqs.php");
+}
 
+else if ($page == "results")
+{
+    include_once("includes/results.php");
+}
 
-<?php
-	include_once ('footer.php');
- ?>
-  </body>
-</html>
+else
+{
+	include_once("includes/home.php");
+}
+
+include("includes/footer.php")
+
+?>
