@@ -68,14 +68,21 @@ class TicketPDO
             $email = $ticket->getEmail();
             $os = $ticket->getOS();
             $issue = $ticket->getIssue();
-            $comments = $ticket->getComments();
+            $commentArray = $ticket->getComments();
+            $commentString = "";
+
+            foreach ($commentArray as $comment)
+            {
+                $commentString .= $comment . "\n";
+            }
+
             $sql = $this->db->prepare($insert);
             $sql->bindParam(':firstName', $firstName);
             $sql->bindParam(':lastName', $lastName);
             $sql->bindParam(':email', $email);
             $sql->bindParam(':os', $os);
             $sql->bindParam(':issue', $issue);
-            $sql->bindParam(':comments',$comments);
+            $sql->bindParam(':comments', $commentString);
             $sql->execute();
         } catch(PDOException $e) {
             // Print PDOException message

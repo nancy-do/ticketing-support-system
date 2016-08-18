@@ -28,7 +28,15 @@ include('TicketPDO.php');
                 print "<td>".$row['email']."</td>";
                 print "<td>".$row['os']."</td>";
                 print "<td>".$row['issue']."</td>";
-                print "<td>".$row['comments']."</td></tr>";
+                print "<td>";
+
+                /* split comment string on \n and spit them into their own paragraph */
+                foreach (explode("\n", $row['comments']) as $comment)
+                {
+                    print "<p>" . $comment . "</p>";
+                }
+
+                print "</td></tr>";
             }
             print "</table>";
             ?>
