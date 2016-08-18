@@ -30,3 +30,26 @@ $(document).ready(function()
         return false;
     });
 });
+
+$(document).ready(function()
+{
+    $(document).on('submit', '#view-form', function()
+    {
+        var data = $(this).serialize();
+
+        $.ajax({
+            type : 'GET',
+            url  : 'includes/view-ticket.php',
+            data : data,
+            success :  function(data)
+            {
+                $("#submit-info").fadeOut(500).hide(function() {
+                    $("#view-info").fadeOut(500).hide(function () {
+                        $("#view-results").html(data);
+                    });
+                });
+            }
+        });
+        return false;
+    });
+});
