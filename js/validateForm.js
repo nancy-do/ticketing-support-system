@@ -4,7 +4,7 @@
 $("#submit").click(function(){
 
     var rName = new RegExp(/^[a-z\s]{1,20}$/i);
-    var rEmail = new RegExp (/^([a-z0-9]+@(student\.)?(ems\.)?rmit\.edu\.au)$/i);
+    var rEmail = new RegExp (/[a-z0-9]+@([a-z.]{1,}).com|au/gi);
     var rIssue = new RegExp (/^.{1,}$/i);
 
     /* Check if First name or Last name is valid */
