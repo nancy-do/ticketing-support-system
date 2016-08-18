@@ -4,7 +4,15 @@
 
 $(document).ready(function(){
     $("#btn").click(function(){
+        $("#form").slideToggle("slow");
+        $(".col-lg-4").hide("slow");
+    });
+});
 
-        $("#form").toggle("slow");
+
+$(document).ready(function(){
+    $("#btn-back").click(function(){
+        $(".col-lg-4").show("slow");
+        $("#form").slideToggle("slow");
     });
 });
