@@ -20,7 +20,7 @@ $string = "<table border=1>";
 $string .= "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td></tr>";
 
 $pdo = TicketPDO::getInstance();
-$results = $pdo.getData();
+$results = $pdo->getData();
 $found = 0;
 
 foreach($results as $row)
