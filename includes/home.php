@@ -1,8 +1,8 @@
     <div class="container w">
 
-		<div class="row centered">
+	<div class="row centered">
 
-            <div class="col-lg-6">
+            <div class="col-lg-6" id="submit-info">
 
                 <div class="support-ticket" id="reg-ticket">
 
@@ -14,8 +14,10 @@
                 </div><!-- col-lg -->
 
             </div>
+            
+            <div id="view-results"></div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6" id="view-info">
 
                 <div class="support-ticket" id="view-ticket">
 
@@ -23,14 +25,15 @@
                     <h4>VIEW YOUR TICKET</h4>
 
                     <div class = "contact" id="view-form">
-                        <form action = "index.php?page=view-ticket" method = "GET">
+                        <form name = "view-form" action = "index.php?page=view-ticket" method = "GET">
 
                             <label><strong>Ticket ID: </strong></label>
-                            <input required type="text" name = "vTicket" id ="tickedID" />
+                            <input required type="text" name = "ticketID" id ="tickedID" autocapitalize="words"/>
                             <p>Enter ticket ID to view, track and modify ticket.</p>
+                          
 
                             <div style="text-align:center">
-                                <button id="btn-view" class="btn btn-danger" type="submit">View ticket</button>
+                                <button id="btn-view-form" class="btn btn-danger" type="submit">View ticket</button>
                             </div>
 
                         </form>
