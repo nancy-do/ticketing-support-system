@@ -3,7 +3,6 @@ session_start();
 
 class Ticket
 {
-    private $id;
     private $firstName;
     private $lastName;
     private $email;
@@ -11,20 +10,14 @@ class Ticket
     private $issue;
     private $comments;
 
-    public function __construct($id, $first, $last, $email, $os, $issue, $comments)
+    public function __construct($first, $last, $email, $os, $issue, $comments)
     {
-        $this->id = $id;
         $this->firstName = $first;
         $this->lastName = $last;
         $this->email = $email;
         $this->os = $os;
         $this->issue = $issue;
         $this->comments[] = $comments;
-    }
-
-    public function getID()
-    {
-        return $this->id;
     }
 
     public function getLastName()
