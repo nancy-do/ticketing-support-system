@@ -25,6 +25,7 @@
     h1, .h1 {
         font-size: 130%;
     }
+
 }
 
 /* iPads (landscape) */
@@ -39,6 +40,7 @@
     h1, .h1 {
         font-size: 200%;
     }
+
 }
 
 body {
@@ -54,6 +56,22 @@ body {
     -webkit-overflow-scrolling: touch;
 
     margin-top: 70px;
+}
+
+@media (min-width: 145px) and (max-width: 1200px){
+    /* style goes here */
+    #reg-ticket {
+        border-bottom: 1px dashed #333;
+        margin-bottom: 4.813em;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* style goes here */
+    #reg-ticket {
+        border-right: 1px dashed #333;
+        margin-bottom: 4.813em;
+    }
 }
 
 /*
@@ -341,7 +359,7 @@ li.active {
 /****** SECTIONS *****/
 
 .w {
-	padding-top: 35px;
+	padding-top: 77px;
 }
 
 .w h4 {
@@ -534,8 +552,21 @@ td, th {
     font-size: 14px;
 }
 
-.contact input[type="text"], .contact input[type="email"], .contact select, .contact textarea {
+.contact input#firstName[type="text"], input#lastName[type="text"], .contact input[type="email"], .contact select, .contact textarea {
     width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    outline: none;
+    color: #000;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #848484;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.contact input#tickedID[type="text"] {
     padding: 10px;
     margin: 10px 0 20px;
     outline: none;
@@ -553,6 +584,10 @@ td, th {
     color: #000;
     font-family: 'Raleway', sans-serif;
     text-align: left;
+}
+
+.contact#view-form {
+    text-align: center;
 }
 
 select {

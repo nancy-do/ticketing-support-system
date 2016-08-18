@@ -2,9 +2,7 @@
 
 		<div class="row centered">
 
-            <br><br>
-
-            <div class="col-lg-4">
+            <div class="col-lg-6">
 
                 <div class="support-ticket" id="reg-ticket">
 
@@ -16,26 +14,26 @@
                 </div><!-- col-lg -->
 
             </div>
-            <div class="col-lg-4">
-            </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-6">
 
                 <div class="support-ticket" id="view-ticket">
 
                     <i class="fa fa-laptop"></i>
                     <h4>VIEW YOUR TICKET</h4>
-                    <p>Enter ticket ID to view, track and modify ticket.</p>
 
                     <div class = "contact" id="view-form">
                         <form action = "index.php?page=view-ticket" method = "GET">
+
                             <label><strong>Ticket ID: </strong></label>
-                            <input required type="text" name = "vTicket" id ="tickedID" autocapitalize="words"/>
+                            <input required type="text" name = "vTicket" id ="tickedID" />
+                            <p>Enter ticket ID to view, track and modify ticket.</p>
+
                             <div style="text-align:center">
                                 <button id="btn-view" class="btn btn-danger" type="submit">View ticket</button>
                             </div>
-                        </form>
 
+                        </form>
                     </div>
 
                 </div>
