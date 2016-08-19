@@ -69,8 +69,27 @@ body {
 @media (min-width: 1200px) {
     /* style goes here */
     #reg-ticket {
-        border-right: 1px dashed #999999;
-        margin-bottom: 4.813em;
+        height: 280px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    #view-ticket {
+        height: 280px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    #view-form > form {
+        height: 170px;
+    }
+
+    #view-info {
+        border-left: 1px dashed #999999;
+    }
+
+    #view-ticket > p {
+        margin-bottom: 0px;
     }
 }
 
@@ -360,6 +379,7 @@ li.active {
 
 .w {
 	padding-top: 77px;
+    padding-bottom: 77px;
 }
 
 .w h4 {
@@ -567,12 +587,11 @@ td, th {
 }
 
 .contact input#tickedID[type="text"] {
-    padding: 10px;
+    padding: 8px;
     margin: 10px 0 20px;
     outline: none;
     color: #000;
     font-weight: 500;
-    font-family: 'Roboto', sans-serif;
     border: 1px solid #848484;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;

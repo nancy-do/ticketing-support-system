@@ -23,14 +23,13 @@
 
                     <i class="fa fa-laptop"></i>
                     <h4>VIEW YOUR TICKET</h4>
+                    <p>Enter ticket ID to view, track and modify ticket.</p>
 
                     <div class = "contact" id="view-form">
                         <form name = "view-form" action = "index.php?page=view-ticket" method = "GET">
 
                             <label><strong>Ticket ID: </strong></label>
                             <input required type="text" name = "ticketID" id ="tickedID" autocapitalize="words"/>
-                            <p>Enter ticket ID to view, track and modify ticket.</p>
-                          
 
                             <div style="text-align:center">
                                 <button id="btn-view-form" class="btn btn-danger" type="submit">View ticket</button>
