@@ -17,6 +17,11 @@ else if ($page == "results")
     include_once("includes/results.php");
 }
 
+else if ($page == "staff")
+{
+    include_once("includes/results.php");
+}
+
 else
 {
 	include_once("includes/home.php");
