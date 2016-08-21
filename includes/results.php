@@ -15,14 +15,20 @@ include('TicketPDO.php');
 
         <div align="center">
 
-            <div id="custom-search-input">
-                <div class="input-group col-md">
-                    <input type="text" class="  search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div id="imaginary_container">
+                            <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control"  placeholder="Search" >
+                                <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
