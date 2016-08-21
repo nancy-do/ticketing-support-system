@@ -20,7 +20,7 @@ include('TicketPDO.php');
                     <div class="col-sm-6 col-sm-offset-3">
                         <div id="imaginary_container">
                             <div class="input-group stylish-input-group">
-                                <input type="text" class="form-control"  placeholder="Search" >
+                                <input type="text" id="search" class="form-control"  placeholder="Search" >
                                 <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
@@ -33,8 +33,8 @@ include('TicketPDO.php');
             </div>
 
         <?php
-            print "<table border=1>";
-            print "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td><td><strong>Status</strong></td></tr>";
+            print "<table border='1' id='table'>";
+            print "<thead><tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td><td><strong>Status</strong></td><td><strong>Update</strong></td></tr></thead>";
             $pdo = TicketPDO::getInstance();
             $results = $pdo->getData();
             foreach($results as $row)
@@ -55,7 +55,9 @@ include('TicketPDO.php');
 
                 print "</td>";
 
-                print "<td>".$row['status']."</td></tr>";
+                print "<td>".$row['status']."</td>";
+
+                print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Update Status</a></a></td></tr>";
             }
             print "</table>";
             ?>
