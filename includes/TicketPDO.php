@@ -32,6 +32,8 @@ class TicketPDO
         try {
             //http://stackoverflow.com/questions/8670687/sqlite-correct-path-uri-for-php-pdo-on-windows
             $this->db = new PDO('sqlite:D:\xampp\htdocs\PhpstormProjects\WDA-A1\tickets.db');
+            //$this->db = new PDO('sqlite:../tickets.db');
+
             // Set errormode to exceptions
             $this->db->setAttribute(PDO::ATTR_ERRMODE,
                 PDO::ERRMODE_EXCEPTION);
@@ -51,7 +53,8 @@ class TicketPDO
                     email TEXT,
                     os TEXT,
                     issue TEXT,
-                    comments TEXT)");
+                    comments TEXT,
+                    status TEXT)");
         } catch(PDOException $e) {
             // Print PDOException message
             echo $e->getMessage();
@@ -61,9 +64,9 @@ class TicketPDO
     public function insertData(Ticket $ticket) {
         try {
             // Prepare INSERT statement to SQLite3 file db
-            $insert = "INSERT INTO tickets (firstName, lastName, email, os, issue, comments)
-                VALUES (:firstName, :lastName, :email, :os, :issue, :comments)";
-            $firstName= $ticket->getFirstName();
+            $insert = "INSERT INTO tickets (firstName, lastName, email, os, issue, comments, status)
+                VALUES (:firstName, :lastName, :email, :os, :issue, :comments, :status)";
+            $firstName = $ticket->getFirstName();
             $lastName = $ticket->getLastName();
             $email = $ticket->getEmail();
             $os = $ticket->getOS();
@@ -76,6 +79,8 @@ class TicketPDO
                 $commentString .= $comment . "\n";
             }
 
+            $status = $ticket->getStatus();
+
             $sql = $this->db->prepare($insert);
             $sql->bindParam(':firstName', $firstName);
             $sql->bindParam(':lastName', $lastName);
@@ -83,6 +88,7 @@ class TicketPDO
             $sql->bindParam(':os', $os);
             $sql->bindParam(':issue', $issue);
             $sql->bindParam(':comments', $commentString);
+            $sql->bindParam(':status', $status);
             $sql->execute();
         } catch(PDOException $e) {
             // Print PDOException message

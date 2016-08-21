@@ -13,11 +13,11 @@ include('TicketPDO.php');
 <div class="container w">
     <div class="row centered">
 
-        <div align="center" style="margin-bottom: 25px;">
+        <div align="center">
 
             <?php
             print "<table border=1>";
-            print "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td></tr>";
+            print "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td><td><strong>Status</strong></td></tr>";
             $pdo = TicketPDO::getInstance();
             $results = $pdo->getData();
             foreach($results as $row)
@@ -36,7 +36,9 @@ include('TicketPDO.php');
                     print "<p>" . $comment . "</p>";
                 }
 
-                print "</td></tr>";
+                print "</td>";
+
+                print "<td>".$row['status']."</td></tr>";
             }
             print "</table>";
             ?>

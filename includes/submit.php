@@ -10,10 +10,11 @@ if($_GET)
     $os = $_GET['os'];
     $issue = $_GET['issue'];
     $comments = $_GET['comments'];
+    $status = $_GET['status'];
 
     $pdo = TicketPDO::getInstance();
 
-    $ticket = new Ticket($firstName, $lastName, $email, $os, $issue, $comments);
+    $ticket = new Ticket($firstName, $lastName, $email, $os, $issue, $comments, $status);
     $pdo->insertData($ticket);
 
     ?>

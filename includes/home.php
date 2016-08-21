@@ -73,6 +73,8 @@
                             <label><strong>Comment: </strong></label>
                             <textarea required name = "comments" id = "comments" autocapitalize="sentences"></textarea>
 
+                            <input type="hidden" name="status" id="status" value="Pending" />
+
                             <div style="text-align:center">
                                 <button class="btn btn-default" type="submit" id="submit">Submit</button>
                             </div>

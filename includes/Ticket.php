@@ -9,8 +9,9 @@ class Ticket
     private $os;
     private $issue;
     private $comments;
+    private $status;
 
-    public function __construct($first, $last, $email, $os, $issue, $comments)
+    public function __construct($first, $last, $email, $os, $issue, $comments, $status)
     {
         $this->firstName = $first;
         $this->lastName = $last;
@@ -18,6 +19,7 @@ class Ticket
         $this->os = $os;
         $this->issue = $issue;
         $this->comments[] = $comments;
+        $this->status = $status;
     }
 
     public function getLastName()
@@ -50,6 +52,11 @@ class Ticket
         return $this->comments;
     }
 
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
     public function setName($first, $last)
     {
         $this->firstName = $first;
@@ -69,6 +76,11 @@ class Ticket
     public function setIssue($issue)
     {
         $this->issue = $issue;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
     public function addComment($comment)
