@@ -15,7 +15,18 @@ include('TicketPDO.php');
 
         <div align="center">
 
-            <?php
+            <div id="custom-search-input">
+                <div class="input-group col-md">
+                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+        <?php
             print "<table border=1>";
             print "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td><td><strong>Status</strong></td></tr>";
             $pdo = TicketPDO::getInstance();
