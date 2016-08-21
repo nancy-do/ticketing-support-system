@@ -34,7 +34,7 @@ include('TicketPDO.php');
 
         <?php
             print "<table border='1' id='table'>";
-            print "<thead><tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td><td><strong>Status</strong></td><td><strong>Update</strong></td></tr></thead>";
+            print "<thead><tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comment</strong></td><td><strong>Status</strong></td><td><strong>Replies/comments</strong></td><td><strong>Update</strong></td></tr></thead>";
             $pdo = TicketPDO::getInstance();
             $results = $pdo->getData();
             foreach($results as $row)
@@ -56,7 +56,7 @@ include('TicketPDO.php');
                 print "</td>";
 
                 print "<td>".$row['status']."</td>";
-
+                print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Add Comments</a></a></td>";
                 print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Update Status</a></a></td></tr>";
             }
             print "</table>";
