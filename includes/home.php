@@ -58,12 +58,8 @@
                             <label><strong>Last Name: </strong></label>
                             <input required type="text" name = "lastName" id = "lastName" autocapitalize="words" />
 
-                            <label><strong>Operating System </strong></label>
-                            <select required name = "os" id = "os">
-                                <option value="Microsoft Windows">Microsoft Windows</option>
-                                <option value="Mac OS">Mac OS</option>
-                                <option value="Linux">Linux</option>
-                            </select>
+                            <label id = "cfos"><strong>Operating System: </strong></label>
+                            <strong><p><div name = "os" id = "os"></div></p></strong>
 
                             <label><strong>Email: </strong></label><input required type="email" name = "email" id = "email">
 

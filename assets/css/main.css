@@ -661,3 +661,7 @@ select {
 #imaginary_container {
     padding-bottom: 50px;
 }
+
+#os {
+    text-align: center;
+}
