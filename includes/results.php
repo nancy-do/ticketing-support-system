@@ -39,7 +39,7 @@ include('TicketPDO.php');
             $results = $pdo->getData();
             foreach($results as $row)
             {
-                print "<tr><td>".$row['id']."</td>";
+                print "<tr><td>".$row['ticket_id']."</td>";
                 print "<td>".$row['firstName']."</td>";
                 print "<td>".$row['lastName']."</td>";
                 print "<td>".$row['email']."</td>";
