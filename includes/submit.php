@@ -2,8 +2,7 @@
 
 include('TicketPDO.php');
 
-if($_GET)
-{
+if($_GET) {
     $firstName = $_GET['firstName'];
     $lastName = $_GET['lastName'];
     $email = $_GET['email'];
@@ -14,18 +13,16 @@ if($_GET)
 
     $pdo = TicketPDO::getInstance();
 
-    $ticket = new Ticket($firstName, $lastName, $email, $os, $issue, $comments, $status);
+    /* valid statuses: unresolved, completed, pending, in progress
+        default: pending */
+    $ticket = new Ticket($firstName, $lastName, $email, $os, $issue, $comments);
     $pdo->insertData($ticket);
 
-    ?>
-
-    <p>Your support ticket has been successfully created! Please allow up to 24 hours for a response.</p>
-    <p>Please click on the <a href="index.php?page=results">link</a> to see all the tickets.</p>
-
-    <?php
-} else {
-    ?>
-    <p>Invalid data posted!</p>
-    <?php
+    print "<p>Your support ticket has been successfully created! Please allow up to 24 hours for a response.</p>";
+    //print "<p>Please click on the <a href=\"index.php?page=results\">link</a> to see all the tickets.</p>";
+    print "<p>Your ticket ID is: " . $ticket->getID() . "</p>";
+}
+else {
+    print"<p>Invalid data posted!</p>";
 }
 ?>
