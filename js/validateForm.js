@@ -3,6 +3,26 @@
  */
 $("#submit").click(function(){
 
+    if($("#firstName").val() == "" || $("#firstName").val() == null)
+    {
+        return true;
+    }
+
+    if($("#lastName").val() == "" || $("#lastName").val() == null)
+    {
+        return true;
+    }
+
+    if($("#email").val() == "" || $("#email").val() == null)
+    {
+        return true;
+    }
+
+    if($("#issue").val() == "" || $("#issue").val() == null)
+    {
+        return true;
+    }
+
     var rName = new RegExp(/^[a-z\s]{1,20}$/i);
     var rEmail = new RegExp (/[a-z0-9]+@([a-z.]{1,}).com|au/gi);
     var rIssue = new RegExp (/^.{1,}$/i);
