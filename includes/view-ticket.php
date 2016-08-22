@@ -20,14 +20,14 @@ $string = "<table border=1>";
 $string .= "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td></tr>";
 
 $pdo = TicketPDO::getInstance();
+//$results = $pdo->getIdData($id);
 $results = $pdo->getData();
 $found = 0;
-
 foreach($results as $row)
 {
-    if ($id == $row['id'])
+    if (strcmp($id, $row['ticket_id']) !== 0)
     {
-        $string .= "<tr><td>".$row['id']."</td>";
+        $string .= "<tr><td>".$row['ticket_id']."</td>";
         $string .= "<td>".$row['firstName']."</td>";
         $string .= "<td>".$row['lastName']."</td>";
         $string .= "<td>".$row['email']."</td>";
@@ -38,7 +38,6 @@ foreach($results as $row)
         break;
     }
 }
-
 if ($found == 1) {
     print $string;
 }

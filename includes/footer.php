@@ -20,6 +20,7 @@
 	<script src="js/script.js"></script>
 	<script src="js/validateForm.js"></script>
 	<script src="js/stickyNavbar.js"></script>
+	<script src="js/jsfiddle.js"></script>
 	<script>
 		// Write on keyup event of keyword input element
 		$("#search").keyup(function(){
