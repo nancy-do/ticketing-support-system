@@ -81,5 +81,5 @@
 
     debug +=   e.os.name ;
 
-    document.getElementById('os').innerHTML = debug;
+    document.getElementById('os').value = debug;
 }());
