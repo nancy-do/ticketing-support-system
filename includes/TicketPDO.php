@@ -31,7 +31,7 @@ class TicketPDO
     protected function __construct() {
         try {
             //http://stackoverflow.com/questions/8670687/sqlite-correct-path-uri-for-php-pdo-on-windows
-            $this->db = new PDO('sqlite:C:\xampp2\htdocs\WDA-A1\tickets.db');
+            $this->db = new PDO('sqlite:D:\xampp\htdocs\PhpstormProjects\WDA-A1\tickets.db');
             //$this->db = new PDO('sqlite:../tickets.db');
 
             // Set errormode to exceptions

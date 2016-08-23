@@ -42,12 +42,12 @@ if($_GET)
     }
     else
     {
-        print "<h1>ID does not exist.</h1>";
+        print "<h1>ID does not Exist</h1>";
     }
 }
 else
 {
-    print "<h1>ID does not exist.</h1>";
+    print "<h1>ID does not Exist</h1>";
 }
 print "</div></div></div>";
 ?>
