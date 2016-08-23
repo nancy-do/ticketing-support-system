@@ -406,8 +406,8 @@ li.active {
 /****** SECTIONS *****/
 
 .w {
-	padding-top: 77px;
-    padding-bottom: 77px;
+	padding-top: 55px;
+    padding-bottom: 60px;
 }
 
 .w h4 {
@@ -682,7 +682,7 @@ select {
 }
 
 #staff-results-container > div.col-sm6.col-sm-offset-3 {
-    padding-bottom: 40px;
+    margin: 80px 0 40px 0;
 }
 
 #os {
