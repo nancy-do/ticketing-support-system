@@ -55,7 +55,7 @@ $(document).ready(function()
 
 $(document).ready(function()
 {
-    $(document).on('submit', '#staff-login', function()
+    $(document).on('submit', '#staff-login-form', function()
     {
         var data = $(this).serialize();
 
@@ -66,7 +66,6 @@ $(document).ready(function()
             success :  function(data)
             {
                 $("#staff-login-container").fadeOut(500).hide(function () {
-
                     $("#staff-results-container").html(data);
                 });
             }

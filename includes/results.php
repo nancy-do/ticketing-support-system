@@ -11,7 +11,7 @@ $id = null;
 
 if($_GET)
 {
-    $id = $_GET['staffKey'];
+    $id = $_GET['staff-key'];
 }
 
 ?>
@@ -24,6 +24,7 @@ if($_GET)
 
                     <?php
 
+                    print "id = ".$id." key = ".$key."<br>";
                     if (strcmp($id, $key) == 0)
                     {
                         print "<div class=\"col-sm-6 col-sm-offset-3\"><div id=\"imaginary_container\">";

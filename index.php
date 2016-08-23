@@ -11,10 +11,6 @@ if ($page == "faqs")
 {
 	include_once("includes/faqs.php");
 }
-else if ($page == "results")
-{
-    include_once("includes/results.php");
-}
 else if ($page == "staff")
 {
     include_once("includes/result-view.php");
