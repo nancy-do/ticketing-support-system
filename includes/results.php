@@ -55,8 +55,8 @@ if($_GET)
 
                             print "</td>";
                             print "<td>".$row['status']."</td>";
-                            print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Add Comments</a></a></td>";
-                            print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Update Status</a></a></td></tr>";
+                            print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['ticket_id'] . "'>Add Comments</a></a></td>";
+                            print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['ticket_id'] . "'>Update Status</a></a></td></tr>";
                         }
                         print "</table>";
 
