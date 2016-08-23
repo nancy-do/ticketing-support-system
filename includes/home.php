@@ -9,7 +9,7 @@
                     <i class="fa fa-laptop"></i>
                     <h4>SUBMIT SUPPORT TICKET</h4>
                     <p>We will get back to you shortly!</p>
-                    <button id="btn" class="btn btn-danger">Submit ticket</button>
+                    <button id="btn" class="btn btn-danger">Submit Ticket</button>
 
                 </div><!-- col-lg -->
 
@@ -32,7 +32,7 @@
                             <input required type="text" name = "ticketID" id ="tickedID" autocapitalize="words"/>
 
                             <div style="text-align:center">
-                                <button id="btn-view-form" class="btn btn-danger" type="submit">View ticket</button>
+                                <button id="btn-view-form" class="btn btn-danger" type="submit">View Ticket</button>
                             </div>
 
                         </form>
