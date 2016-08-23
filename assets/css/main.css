@@ -408,8 +408,8 @@ li.active {
 /****** SECTIONS *****/
 
 .w {
-	padding-top: 77px;
-    padding-bottom: 77px;
+	padding-top: 55px;
+    padding-bottom: 60px;
 }
 
 .w h4 {
@@ -680,11 +680,8 @@ select {
 }
 
 #table {
-    margin-top: 40px;
-}
-
-#staff-results-container > div > div > div {
-    padding-bottom: 40px;
+    margin-top: 80px;
+    margin-bottom: 40px;
 }
 
 #os {
