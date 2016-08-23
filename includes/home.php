@@ -63,7 +63,7 @@
 
                             <label>OS:</label><select name="os" id="os" required>
                                 <option value="Windows Phone">Windows Phone</option>
-                                <option value="Microsoft Wnidows">Microsoft Windows</option>
+                                <option value="Microsoft Windows">Microsoft Windows</option>
                                 <option value="iPhone">iPhone</option>
                                 <option value="iPad">iPad</option>
                                 <option value="Android">Android</option>
