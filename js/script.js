@@ -7,7 +7,17 @@ $(document).ready(function()
     {
         var data = $(this).serialize();
 
-        $.ajax({
+        //$.get(url, datatosend, datareceived)
+
+        $.get("includes/submit.php", data, function(returnData) {
+            $("#reg-ticket").fadeOut(500).hide();
+            $("#reg-form").fadeOut(500).hide();
+            $(".result").fadeIn(500).show(function() {
+                $(".result").html(returnData);
+            }
+        });
+
+        /*$.ajax({
 
             type : 'GET',
             url  : 'includes/submit.php',
@@ -25,18 +35,21 @@ $(document).ready(function()
                     });
                 });
             }
-        });
+        });*/
         return false;
     });
-});
 
-$(document).ready(function()
-{
     $(document).on('submit', '#viewform', function()
     {
         var data = $(this).serialize();
 
-        $.ajax({
+        $.get("includes/view-ticket.php", data, function(returnData) {
+            $("#submit-info").fadeOut(500).hide();
+            $("#view-info").fadeOut(500).hide();
+            $("#view-results").html(returnData);
+        });
+
+        /*$.ajax({
             type : 'GET',
             url  : 'includes/view-ticket.php',
             data : data,
@@ -48,18 +61,20 @@ $(document).ready(function()
                     });
                 });
             }
-        });
+        }); */
         return false;
     });
-});
 
-$(document).ready(function()
-{
     $(document).on('submit', '#staff-login-form', function()
     {
         var data = $(this).serialize();
 
-        $.ajax({
+        $.get("includes/resulsts.php", data, function(returnData) {
+            $("staff-login-container").fadeOut(500).hide();
+            $("#staff-results-container").html(data);
+        });
+
+        /*$.ajax({
             type : 'GET',
             url  : 'includes/results.php',
             data : data,
@@ -69,7 +84,7 @@ $(document).ready(function()
                     $("#staff-results-container").html(data);
                 });
             }
-        });
+        });*/
 
         return false;
     });
