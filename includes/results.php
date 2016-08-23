@@ -11,7 +11,7 @@ $id = null;
 
 if($_GET)
 {
-    $id = $_GET['staff-key'];
+    $id = $_GET['staffKey'];
 }
 
 ?>
