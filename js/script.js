@@ -1,21 +1,23 @@
 /**
  * Created by WaiTung on 13/08/2016.
  */
+
+const FADETIME = 500;
+
 $(document).ready(function()
 {
     $(document).on('submit', '#reg-form', function()
     {
         var data = $(this).serialize();
 
-        //$.get(url, datatosend, datareceived)
-
         $.get("includes/submit.php", data, function(returnData) {
-            $("#reg-ticket").fadeOut(500).hide();
-            $("#reg-form").fadeOut(500).hide();
-            $(".result").fadeIn(500).show(function() {
-                $(".result").html(returnData);
-            }
-        });
+            $("#reg-ticket").fadeOut(FADETIME);
+            $("#reg-form").fadeOut(FADETIME);
+            $(":animated").promise().done(function() {
+                $(".result").html(returnData).fadeIn(FADETIME);
+            })
+        })
+
 
         /*$.ajax({
 
@@ -44,10 +46,13 @@ $(document).ready(function()
         var data = $(this).serialize();
 
         $.get("includes/view-ticket.php", data, function(returnData) {
-            $("#submit-info").fadeOut(500).hide();
-            $("#view-info").fadeOut(500).hide();
-            $("#view-results").html(returnData);
-        });
+            $("#submit-info").fadeOut(FADETIME);
+            $("#view-info").fadeOut(FADETIME);
+            $(":animated").promise().done(function() {
+                $("#view-results").html(returnData);
+            })
+
+        })
 
         /*$.ajax({
             type : 'GET',
@@ -69,10 +74,12 @@ $(document).ready(function()
     {
         var data = $(this).serialize();
 
-        $.get("includes/resulsts.php", data, function(returnData) {
-            $("staff-login-container").fadeOut(500).hide();
-            $("#staff-results-container").html(data);
-        });
+        $.get("includes/results.php", data, function(returnData) {
+            $("#staff-login-container").fadeOut(FADETIME);
+            $(":animated").promise().done(function() {
+                $("#staff-results-container").html(returnData);
+            })
+        })
 
         /*$.ajax({
             type : 'GET',
