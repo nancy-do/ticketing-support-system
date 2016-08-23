@@ -55,15 +55,15 @@ if($_GET)
 
                             print "</td>";
                             print "<td>".$row['status']."</td>";
-                            print "<td><a href='index.php?page=update_ticket_form.php?id='>Add Comments</a></a></td>";
-                            print "<td><a href='index.php?page=update_ticket_form.php?id='>Update Status</a></a></td></tr>";
+                            print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Add Comments</a></a></td>";
+                            print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['id'] . "'>Update Status</a></a></td></tr>";
                         }
                         print "</table>";
 
                     }
                     else
                     {
-                        print "<h1>Could not Login</h1>";
+                        print "<h1>Could not login.</h1>";
                     }
 
                     ?>
@@ -74,6 +74,3 @@ if($_GET)
         </div>
     </div><!-- row -->
 </div><!-- container -->
-
-
-

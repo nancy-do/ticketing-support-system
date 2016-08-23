@@ -1,6 +1,6 @@
     <div class="container w">
 
-	<div class="row centered">
+    <div class="row centered">
 
             <div class="col-lg-6" id="submit-info">
 
@@ -58,12 +58,16 @@
                             <label><strong>Last Name: </strong></label>
                             <input required type="text" name = "lastName" id = "lastName" autocapitalize="words" />
 
-                            <!--<label><strong>Operating System: </strong></label>-->
-                            <!--<strong><p><select name = "os" id = "os"></select></p></strong>-->
-                            <label><strong>Operating System </strong></label>
-                            <select required name = "os" id = "os">
-                                <option value="Microsoft Windows">Microsoft Windows</option>
-                                <option value="Mac OS">Mac OS</option>
+                            <!--<label id = "cfos"><strong>Operating System: </strong></label>
+                            <strong><p><div name = "os" id = "os"></div></p></strong>-->
+
+                            <label>OS:</label><select name="os" id="os" required>
+                                <option value="Windows Phone">Windows Phone</option>
+                                <option value="Microsoft Wnidows">Microsoft Windows</option>
+                                <option value="iPhone">iPhone</option>
+                                <option value="iPad">iPad</option>
+                                <option value="Android">Android</option>
+                                <option value="Macintosh">Macintosh</option>
                                 <option value="Linux">Linux</option>
                             </select>
 
@@ -92,6 +96,3 @@
         </div>
 
     </div>
-
-
-
