@@ -16,29 +16,27 @@ if($_GET)
 
 ?>
 
-
-
 <div class="container w">
     <div class="row">
-
-        <div class="col-sm-6 col-sm-offset-3">
-            <div id="imaginary_container">
-                <div class="input-group stylish-input-group">
-                    <input type="text" id="search" class="form-control"  placeholder="Search" >
-                    <span class="input-group-addon">
-                <button type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
-                </div>
-            </div>
-        </div>
 
         <?php
 
         //print "id = ".$id." key = ".$key."<br>";
         if (strcmp($id, $key) == 0)
         {
+            echo '<div class="col-sm-6 col-sm-offset-3">
+                    <div id="imaginary_container">
+                        <div class="input-group stylish-input-group">
+                            <input type="text" id="search" class="form-control"  placeholder="Search" >
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>';
+
             print "<table border='1' id='table'>";
             print "<thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead>";
 
