@@ -5,7 +5,6 @@ $(document).ready(function()
 {
     $(document).on('submit', '#reg-form', function()
     {
-
         var data = $(this).serialize();
 
         $.ajax({
@@ -33,7 +32,7 @@ $(document).ready(function()
 
 $(document).ready(function()
 {
-    $(document).on('submit', '#view-form', function()
+    $(document).on('submit', '#viewform', function()
     {
         var data = $(this).serialize();
 
@@ -50,6 +49,29 @@ $(document).ready(function()
                 });
             }
         });
+        return false;
+    });
+});
+
+$(document).ready(function()
+{
+    $(document).on('submit', '#staff-login', function()
+    {
+        var data = $(this).serialize();
+
+        $.ajax({
+            type : 'GET',
+            url  : 'includes/results.php',
+            data : data,
+            success :  function(data)
+            {
+                $("#staff-login-container").fadeOut(500).hide(function () {
+
+                    $("#staff-results-container").html(data);
+                });
+            }
+        });
+
         return false;
     });
 });
