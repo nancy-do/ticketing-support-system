@@ -13,7 +13,7 @@
                     <form id="staff-login-form" action = "index.php?page=results" method = "GET">
 
                         <label><strong>Enter Key: </strong></label><br>
-                        <input required type="text" id ="staffKey" autocapitalize="words"/>
+                        <input required type="text" name ="staff-key" id ="staff-key" autocapitalize="words"/>
 
                         <div style="text-align:center">
                             <button class="btn btn-danger" type="submit">Login</button>
