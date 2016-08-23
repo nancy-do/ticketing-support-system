@@ -26,7 +26,7 @@
                     <p>Enter ticket ID to view, track and modify ticket.</p>
 
                     <div class = "contact" id="view-form">
-                        <form name = "view-form" action = "index.php?page=view-ticket" method = "GET">
+                        <form name = "view-form" action = "index.php?page=view-ticket" method = "GET" id="viewform">
 
                             <label><strong>Ticket ID: </strong></label>
                             <input required type="text" name = "ticketID" id ="tickedID" autocapitalize="words"/>
