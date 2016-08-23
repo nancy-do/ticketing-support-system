@@ -594,7 +594,7 @@ td, th {
     border-radius: 2px;
 }
 
-.contact input#tickedID[type="text"] {
+.contact input#tickedID[type="text"], input#staffKey[type="text"] {
     padding: 8px;
     margin: 10px 0 20px;
     outline: none;
