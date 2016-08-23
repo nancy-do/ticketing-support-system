@@ -679,8 +679,12 @@ select {
     background:transparent;
 }
 
-#staff-results-container > div.col-sm-6.col-sm-offset-3 {
-    padding-top: 19.25px;
+#table {
+    margin-top: 40px;
+}
+
+#staff-results-container > div > div > div {
+    padding-bottom: 40px;
 }
 
 #os {
