@@ -25,20 +25,19 @@ if($_GET)
         if (strcmp($id, $key) == 0)
         {
             echo '<div class="col-sm-6 col-sm-offset-3">
-                    <div id="imaginary_container">
-                        <div class="input-group stylish-input-group">
-                            <input type="text" id="search" class="form-control"  placeholder="Search" >
+                    <div class="input-group stylish-input-group">
+                        <input type="text" id="search" class="form-control"  placeholder="Search" >
                             <span class="input-group-addon">
                                 <button type="submit">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </button>
                             </span>
-                        </div>
                     </div>
-                </div>';
+                  </div>
 
-            print "<table border='1' id='table'>";
-            print "<thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead>";
+            <table border="1" id="table">
+            <thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead>
+            <tbody>';
 
             $pdo = TicketPDO::getInstance();
             $results = $pdo->getData();
@@ -63,6 +62,7 @@ if($_GET)
                 print "<td>".$row['status']."</td>";
                 print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['ticket_id'] . "'>Add Comments</a></a></td>";
                 print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['ticket_id'] . "'>Update Status</a></a></td></tr>";
+                print "</tbody>";
             }
 
             print "</table>";
@@ -72,7 +72,7 @@ if($_GET)
         else
 
         {
-            print "<h1>Could not login.</h1>";
+            print "<h1>Could not Login</h1>";
         }
 
         ?>

@@ -15,7 +15,7 @@ if($_GET)
     print "<div class=\"container w\"><div class=\"row centered\"><div class=\"col-lg-12\">";
 
     $string = "<table border=1>";
-    $string .= "<tr><td><strong>Id</td><td><strong>First Name</strong></td><td><strong>Last Name</strong></td><td><strong>Email</strong></td><td><strong>OS</strong></td><td><strong>Issue</strong></td><td><strong>Comments</strong></td></tr>";
+    $string .= "<tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comments</strong></th></tr>";
 
     $pdo = TicketPDO::getInstance();
 //$results = $pdo->getIdData($id);
@@ -45,10 +45,7 @@ if($_GET)
         print "<h1>ID does not Exist</h1>";
     }
 }
-else
-{
-    print "<h1>ID does not Exist</h1>";
-}
+
 print "</div></div></div>";
 ?>
 
