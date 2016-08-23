@@ -113,8 +113,10 @@ Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
-@media only screen and (max-width: 995px),
-(min-device-width: 145px) and (max-device-width: 1024px)  {
+
+@media only screen and (max-width: 995px), 
+    (min-device-width: 145px) and (max-device-width: 1024px) {
+>>>>>>> 0ea62fda5a7cac2831dc8ea2e98dabfda6a2493f
 
     /* Force table to not be like tables anymore */
     table, thead, tbody, th, td, tr {
@@ -128,7 +130,9 @@ and also iPads specifically.
         left: -9999px;
     }
 
-    tr { border: 1px solid #ccc; }
+    tr { 
+        border: 1px solid #ccc;
+    }
 
     td {
         /* Behave  like a "row" */
@@ -152,6 +156,7 @@ and also iPads specifically.
     /*
 	Label the data
 	*/
+
     td:nth-of-type(1):before { content: "Id"; }
     td:nth-of-type(2):before { content: "First Name"; }
     td:nth-of-type(3):before { content: "Last Name"; }
@@ -162,8 +167,6 @@ and also iPads specifically.
     td:nth-of-type(8):before { content: "Status"; }
     td:nth-of-type(9):before { content: "Replies/comments"; }
     td:nth-of-type(10):before { content: "Update"; }
-
-
 }
 
 body.fade-out {
@@ -408,8 +411,8 @@ li.active {
 /****** SECTIONS *****/
 
 .w {
-	padding-top: 77px;
-    padding-bottom: 77px;
+	padding-top: 55px;
+    padding-bottom: 60px;
 }
 
 .w h4 {
@@ -683,8 +686,8 @@ select {
     margin-top: 40px;
 }
 
-#staff-results-container > div > div > div {
-    padding-bottom: 40px;
+#staff-results-container > div.col-sm6.col-sm-offset-3 {
+    margin: 80px 0 40px 0;
 }
 
 #os {
