@@ -73,7 +73,8 @@ if($_GET)
 
         {
             print "<div class=\"container w\"><div class=\"row centered\"><div class=\"col-lg-12\">";
-            print "<h1>COULD NOT LOGIN</h1>";
+            print "<h3>COULD NOT LOGIN</h3>";
+            print "<strong><p>WARNING - You have entered an incorrect password</p></strong>";
             print "</div></div></div>";
         }
 

@@ -42,7 +42,8 @@ if($_GET)
     }
     else
     {
-        print "<h1>ID DOES NOT EXIST</h1>";
+        print "<h3>ID DOES NOT EXIST</h3>";
+        print "<strong><p>WARNING - You have entered an incorrect Ticket ID</p></strong>";
     }
 }
 
