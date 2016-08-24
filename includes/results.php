@@ -72,7 +72,9 @@ if($_GET)
         else
 
         {
-            print "<h1>Could not Login</h1>";
+            print "<div class=\"container w\"><div class=\"row centered\"><div class=\"col-lg-12\">";
+            print "<h1>COULD NOT LOGIN</h1>";
+            print "</div></div></div>";
         }
 
         ?>

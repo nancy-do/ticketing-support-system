@@ -42,7 +42,7 @@ if($_GET)
     }
     else
     {
-        print "<h1>ID does not Exist</h1>";
+        print "<h1>ID DOES NOT EXIST</h1>";
     }
 }
 
