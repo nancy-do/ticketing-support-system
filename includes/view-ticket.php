@@ -15,7 +15,7 @@ if($_GET)
     print "<div class=\"container w\"><div class=\"row centered\"><div class=\"col-lg-12\">";
 
     $string = "<table border=1>";
-    $string .= "<tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comments</strong></th></tr>";
+    $string .= "<thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th></tr></thead>";
 
     $pdo = TicketPDO::getInstance();
 //$results = $pdo->getIdData($id);

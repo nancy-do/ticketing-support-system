@@ -6,7 +6,7 @@
  * Time: 17:21
  */
 include('TicketPDO.php');
-$key = "a2u0i1i6n";
+$key = "password";
 $id = null;
 
 if($_GET)

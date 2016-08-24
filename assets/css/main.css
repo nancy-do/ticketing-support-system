@@ -79,6 +79,10 @@ body {
     #view-ticket > p {
         margin-bottom: 0px;
     }
+
+    td {
+        font-size: 12px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -106,6 +110,7 @@ body {
     #view-ticket > p {
         margin-bottom: 0px;
     }
+
 }
 
 /*
