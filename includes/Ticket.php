@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 class Ticket
 {
     private $id;
@@ -13,7 +11,7 @@ class Ticket
     private $comments;
     private static $statuses = ["UNRESOLVED", "PENDING", "IN PROGRESS", "COMPLETED"];
 
-    public function __construct($first, $last, $email, $os, $issue, $comments)
+    public function __construct($first, $last, $email, $os, $issue, $comments, $status = "PENDING")
     {
         $this->id = $this->generateID();
         $this->firstName = $first;
@@ -22,19 +20,7 @@ class Ticket
         $this->os = $os;
         $this->issue = $issue;
         $this->comments[] = $comments;
-        $this->status = "PENDING";
-
-
-        /*
-        if (in_array(strtoupper($status), $this->statuses))
-        {
-            $this->status = strtoupper($status);
-        }
-        else
-        {
-            $this->status = "PENDING";
-        }
-        */
+        $this->status = $status;
     }
 
     private function generateID()

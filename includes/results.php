@@ -6,7 +6,8 @@
  * Time: 17:21
  */
 include('TicketPDO.php');
-$key = "a2u0i1i6n";
+//$key = "a2u0i1i6n";
+$key = "a"; // temp
 $id = null;
 
 if($_GET)
@@ -36,11 +37,10 @@ if($_GET)
 
         <?php
 
-        //print "id = ".$id." key = ".$key."<br>";
         if (strcmp($id, $key) == 0)
         {
             print "<table border='1' id='table'>";
-            print "<thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead>";
+            print "<thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th>Edit/Update</th></tr></thead>";
 
             $pdo = TicketPDO::getInstance();
             $results = $pdo->getData();
@@ -63,8 +63,7 @@ if($_GET)
 
                 print "</td>";
                 print "<td>".$row['status']."</td>";
-                print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['ticket_id'] . "'>Add Comments</a></a></td>";
-                print "<td><a href='index.php?page=update_ticket_form.php?id=" . $row['ticket_id'] . "'>Update Status</a></a></td></tr>";
+                print "<td><button class='btn btn-danger edit'>Edit</button>";
             }
 
             print "</table>";
@@ -78,6 +77,41 @@ if($_GET)
         }
 
         ?>
-
     </div><!-- row -->
 </div><!-- container -->
+
+<div id="ticketData">
+    <button id="return" class="btn btn-danger">Back</button>
+    <label>ID:</label>
+        <input type="text" name="id">
+
+    <label>First Name:</label>
+        <input required type="text" name="firstName">
+
+    <label>Last Name:</label>
+        <input required type="text" name="lastName">
+
+    <label>Email:</label>
+        <input required type="email" name="email">
+
+    <label>OS:</label>
+        <input type="text" name="os">
+
+    <label>Issue:</label>
+        <textarea required name="issue" autocapitalize="sentences"></textarea>
+
+    <label>Comment: </label>
+        <textarea required name="comments" autocapitalize="sentences"></textarea>
+
+    <label>Status</label>
+        <select name="status">
+            <option value="PENDING">PENDING</option>
+            <option value="UNRESOLVED">UNRESOLVED</option>
+            <option value="IN PROGRESS">IN PROGRESS</option>
+            <option value="COMPLETED">COMPLETED</option>
+        </select>
+
+    <button id="update" class="btn btn-danger">Update</button>
+</div>
+
+<script src="js/edit_ticket.js"></script>

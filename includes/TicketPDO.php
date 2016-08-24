@@ -30,8 +30,8 @@ class TicketPDO
      */
     protected function __construct() {
         try {
-            $this->db = new PDO('sqlite:..\tickets.db');      /* WINDOWS */
-            //$this->db = new PDO('sqlite:../tickets.db');        /* LINUX, MAC */
+            //$this->db = new PDO('sqlite:..\tickets.db');      /* WINDOWS */
+            $this->db = new PDO('sqlite:../tickets.db');        /* LINUX, MAC */
 
             // Set errormode to exceptions
             $this->db->setAttribute(PDO::ATTR_ERRMODE,
@@ -70,33 +70,59 @@ class TicketPDO
             $insert = "INSERT INTO tickets (ticket_id, firstName, lastName, email, os, issue, comments, status)
                 VALUES (:ticket_id, :firstName, :lastName, :email, :os, :issue, :comments, :status)";
 
-            $ticket_id = $ticket->getId();
-            $firstName = $ticket->getFirstName();
-            $lastName = $ticket->getLastName();
-            $email = $ticket->getEmail();
-            $os = $ticket->getOS();
-            $status = $ticket->getStatus();
-            $issue = $ticket->getIssue();
-            $commentArray = $ticket->getComments();
             $commentString = "";
 
-            foreach ($commentArray as $comment)
+            foreach ($ticket->getComments() as $comment)
             {
                 $commentString .= $comment . "\n";
             }
 
             $sql = $this->db->prepare($insert);
-            $sql->bindParam(':ticket_id', $ticket_id);
-            $sql->bindParam(':firstName', $firstName);
-            $sql->bindParam(':lastName', $lastName);
-            $sql->bindParam(':email', $email);
-            $sql->bindParam(':os', $os);
-            $sql->bindParam(':issue', $issue);
+            $sql->bindParam(':ticket_id', $ticket->getId());
+            $sql->bindParam(':firstName', $ticket->getFirstName());
+            $sql->bindParam(':lastName', $ticket->getLastName());
+            $sql->bindParam(':email', $ticket->getEmail());
+            $sql->bindParam(':os', $ticket->getOS());
+            $sql->bindParam(':issue', $ticket->getIssue());
             $sql->bindParam(':comments', $commentString);
-            $sql->bindParam(':status', $status);
+            $sql->bindParam(':status', $ticket->getStatus());
             $sql->execute();
         } catch(PDOException $e) {
             // Print PDOException message
+            echo $e->getMessage();
+        }
+    }
+
+    public function update(Ticket $ticket)
+    {
+        try
+        {
+            $update = "UPDATE tickets 
+                        SET firstName = :firstName,
+                            lastName = :lastName,
+                            email = :email,
+                            os = :os,
+                            issue = :issue,
+                            comments = :comments,
+                            status = :status
+                        WHERE ticket_id = :ticket_id";
+            
+            $sql = $this->db->prepare($update);
+            
+            $sql->bindParam(':ticket_id', $ticket->getId());
+            $sql->bindParam(':firstName', $ticket->getFirstName());
+            $sql->bindParam(':lastName', $ticket->getLastName());
+            $sql->bindParam(':email', $ticket->getEmail());
+            $sql->bindParam(':os', $ticket->getOS());
+            $sql->bindParam(':issue', $ticket->getIssue());
+            $sql->bindParam(':comments', $commentString);
+            $sql->bindParam(':status', $ticket->getStatus());
+            
+            $sql->execute();
+            echo "updated db";
+        }
+        catch (PDOException $e)
+        {
             echo $e->getMessage();
         }
     }
