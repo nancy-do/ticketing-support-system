@@ -58,6 +58,18 @@ body {
     margin-top: 70px;
 }
 
+@media (min-width: 145px) and (max-width: 800px){
+    td {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1200px){
+    td {
+        font-size: 14px;
+    }
+}
+
 @media (min-width: 145px) and (max-width: 1200px){
     /* style goes here */
     #reg-ticket {
@@ -80,9 +92,6 @@ body {
         margin-bottom: 0px;
     }
 
-    td {
-        font-size: 12px;
-    }
 }
 
 @media (min-width: 1200px) {
