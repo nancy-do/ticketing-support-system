@@ -3,29 +3,38 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <link rel="shortcut icon" href="assets/img/favicon.png">
-
     <title>ITS Web Ticketing System</title>
-
-    <link href="assets/css/main.css" rel="stylesheet">
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <link href="assets/css/staff_style.css" rel="stylesheet">
+    <!-- Referenced for education purposes: http://www.freewebdesigntutorials.net/100-best-free-html-css-search-boxes/ -->
+    <link href="assets/css/search_bar.css" rel="stylesheet">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 </head>
 
-
 <body>
-<!-- temporarily -->
-<style>
+<div id="rcorners1">
+    <!-- Please adjust the code for button to link it back when ready -->
+    <button class="Button"><img src="assets/img/back-button.png"></button>
+    <h1 class="center">STAFF</h1>
+</div>
 
-</style>
-
-<div class="block -blue edge--bottom--reverse">
-
+<div class='search'>
+    <div class='search_bar'>
+        <input id='searchOne' type='checkbox'>
+        <label for='searchOne'>
+            <i class='icon ion-android-search'></i>
+            <i class='last icon ion-android-close'></i>
+            <p>|</p>
+        </label>
+        <input placeholder='Search an ID' type='text'>
+    </div>
 </div>
 </body>
+
+<footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</footer>
+</html>
 
 
 
