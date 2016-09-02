@@ -52,7 +52,14 @@ if($_GET)
                 echo "<td>" . $ticket->getEmail() . "</td>";
                 echo "<td>" . $ticket->getOS() . "</td>";
                 echo "<td>" . $ticket->getIssue() . "</td>";
-                echo "<td/>";
+                echo "<td>";
+
+                foreach ($ticket->getComments() as $comment)
+                {
+                    echo $comment . "\n";
+                }
+
+                echo "</td>";
                 echo "<td>" . $ticket->getStatus() . "</td>";
                 echo "</tr></table>";
             }
