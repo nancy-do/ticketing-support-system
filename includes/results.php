@@ -39,14 +39,14 @@ if($_GET)
             <thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead></table>';
 
             $pdo = TicketPDO::getInstance();
-            $ticketIDs = $pdo->getData();
+            $ticketIDs = $pdo->getIDs();
 
             foreach ($ticketIDs as $id)
             {
                 $ticket = $pdo->getIdData($id['ticket_id']);
 
                 echo "<table><tr>";
-                echo "<td>" . $id . "</td>";
+                echo "<td>" . $id['ticket_id'] . "</td>";
                 echo "<td>" . $ticket->getFirstName() . "</td>";
                 echo "<td>" . $ticket->getLastName() . "</td>";
                 echo "<td>" . $ticket->getEmail() . "</td>";
