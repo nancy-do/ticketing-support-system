@@ -3,22 +3,22 @@
  */
 $("#submit").click(function(){
 
-    if($("#firstName").val() == "" || $("#firstName").val() == null)
+    if ($("#firstName").val() == "" || $("#firstName").val() == null)
     {
         return true;
     }
 
-    if($("#lastName").val() == "" || $("#lastName").val() == null)
+    if ($("#lastName").val() == "" || $("#lastName").val() == null)
     {
         return true;
     }
 
-    if($("#email").val() == "" || $("#email").val() == null)
+    if ($("#email").val() == "" || $("#email").val() == null)
     {
         return true;
     }
 
-    if($("#issue").val() == "" || $("#issue").val() == null)
+    if ($("#issue").val() == "" || $("#issue").val() == null)
     {
         return true;
     }
