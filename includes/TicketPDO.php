@@ -67,13 +67,13 @@ class TicketPDO
                     lastName text,
                     email text,
                     os text,
-                        FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id)");
+                        FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
 
             // COMMENTS TABLE (comments are stored as a serialised array)
             $this->db->exec("CREATE TABLE IF NOT EXISTS comments(
                     ticket_id text,
                     comments text,
-                        FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id)");
+                        FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
 
         } catch(PDOException $e) {
             echo $e->getMessage();
@@ -122,7 +122,7 @@ class TicketPDO
             $sql = $this->db->prepare($insert);
             $sql->bindParam(":ticket_id", $ticket->getID());
             $sql->bindParam(":issue", $ticket->getIssue());
-            $sql->bindParam(":status", $ticket->getStats());
+            $sql->bindParam(":status", $ticket->getStatus());
             $sql->execute();
 
             // USER INFO INSERT
@@ -153,14 +153,7 @@ class TicketPDO
     {
         try
         {
-            $result = $this->db->query("SELECT * FROM ticketInfo");
-            echo "ticketInfo: " . $result . "\n";
-
-            $result = $this->db->query("SELECT * FROM userInfo");
-            echo "userInfo: " . $result . "\n";
-
-            $result = $this->db->query("SELECT * FROM comments");
-            echo "comments: " . $result . "\n";
+            return $this->db->query("SELECT ticket_id FROM ticketInfo");
         }
         catch (PDOException $e)
         {
@@ -178,14 +171,37 @@ class TicketPDO
 
     public function getIdData($id)
     {
-        try {
-            /*// Prepare INSERT statement to SQLite3 file db
+        try
+        {
+            $userInfo = $this->db->query("SELECT firstName, lastName, email, os 
+                                            FROM userInfo
+                                            WHERE ticket_id = " . $id);
+            $comments = $this->db->query("SELECT comments
+                                            FROM comments
+                                            WHERE ticket_id = " . $id);
+        }
+        /*try {
+            // Prepare INSERT statement to SQLite3 file db
             $result = $this->db->query('SELECT firstName,lastName,email, os, issue, comments FROM tickets
                         WHERE ticket_id="'.$id.'"');
-            return $result;*/
+            return $result;
 
         } catch (PDOException $e) {
             // Print PDOException message
+            echo $e->getMessage();
+        }*/
+    }
+
+    private function drop()
+    {
+        try
+        {
+            $this->db->exec("DROP TABLE ticketInfo");
+            $this->db->exec("DROP TABLE userInfo");
+            $this->db->exec("DROP TABLE comments");
+        }
+        catch (PDOException $e)
+        {
             echo $e->getMessage();
         }
     }
