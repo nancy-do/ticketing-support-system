@@ -69,6 +69,7 @@ class TicketPDO
         {
             echo $e->getMessage();
         }
+    }
 
     /**
      * @param Ticket $ticket
