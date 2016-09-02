@@ -65,6 +65,10 @@ class TicketPDO
                     comments text,
                     FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
         }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
 
     /**
      * @param Ticket $ticket
@@ -86,6 +90,10 @@ class TicketPDO
             $sql = $this->db->prepare($insert);
             $sql->execute([$ticket->getID(), serialize($ticket->getComments())]);
         }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
     }
 
     public function getIDs()
@@ -93,6 +101,10 @@ class TicketPDO
         try
         {
             return $this->db->query("SELECT ticket_id FROM ticketInfo");
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
         }
     }
 
@@ -109,6 +121,10 @@ class TicketPDO
             $data = $ticketInfo->fetch(PDO::FETCH_ASSOC);
 
             return new Ticket($data['firstName'], $data['lastName'], $data['email'], $data['os'], $data['issue'], $data['status'], unserialize($data['comments']), $id);
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
         }
     }
 
