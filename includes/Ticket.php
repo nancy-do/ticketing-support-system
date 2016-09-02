@@ -24,7 +24,7 @@ class Ticket
         $this->os = $os;
         $this->issue = $issue;
         $this->status = $status;
-        $this->comments[] = $comments;
+        $this->comments = $comments;
     }
 
     private function generateID()
@@ -114,8 +114,8 @@ class Ticket
         }
     }
 
-    public function addComment($comment)
+    public function setComments($comments)
     {
-        $this->comments[] = $comment;
+        $this->comments = $comments;
     }
 }

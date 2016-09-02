@@ -15,7 +15,7 @@ if($_GET) {
 
     /* valid statuses: unresolved, completed, pending, in progress
         default: pending */
-    $ticket = new Ticket($firstName, $lastName, $email, $os, $issue, "PENDING", $comments);
+    $ticket = new Ticket($firstName, $lastName, $email, $os, $issue, "PENDING", array($comments));
     $pdo->insertData($ticket);
 
     print "<p>Your support ticket has been successfully created! Please allow up to 24 hours for a response.</p>";
