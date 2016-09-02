@@ -36,24 +36,26 @@ if($_GET)
                   </div>
 
             <table border="1" id="table">
-            <thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead>
-            <tbody>';
-            print "</tbody></table>";
+            <thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead></table>';
 
             $pdo = TicketPDO::getInstance();
-            $result = $pdo->getData();
+            $ticketIDs = $pdo->getData();
 
-            foreach ($result as $row)
+            foreach ($ticketIDs as $id)
             {
-                foreach ($row as $res)
-                {
-                    var_dump($res);
-                }
+                $ticket = $pdo->getIdData($id['ticket_id']);
+
+                echo "<table><tr>";
+                echo "<td>" . $id . "</td>";
+                echo "<td>" . $ticket->getFirstName() . "</td>";
+                echo "<td>" . $ticket->getLastName() . "</td>";
+                echo "<td>" . $ticket->getEmail() . "</td>";
+                echo "<td>" . $ticket->getOS() . "</td>";
+                echo "<td>" . $ticket->getIssue() . "</td>";
+                echo "<td/>";
+                echo "<td>" . $ticket->getStatus() . "</td>";
+                echo "</tr></table>";
             }
-
-            
-
-
 
             /*foreach($results as $row)
             {
