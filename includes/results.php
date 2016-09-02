@@ -38,11 +38,24 @@ if($_GET)
             <table border="1" id="table">
             <thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th><th><strong>Status</strong></th><th><strong>Replies/comments</strong></th><th><strong>Update</strong></th></tr></thead>
             <tbody>';
+            print "</tbody></table>";
 
             $pdo = TicketPDO::getInstance();
-            $results = $pdo->getData();
+            $result = $pdo->getData();
 
-            foreach($results as $row)
+            foreach ($result as $row)
+            {
+                foreach ($row as $res)
+                {
+                    var_dump($res);
+                }
+            }
+
+            
+
+
+
+            /*foreach($results as $row)
             {
                 print "<tr><td>".$row['ticket_id']."</td>";
                 print "<td>".$row['firstName']."</td>";
@@ -52,7 +65,7 @@ if($_GET)
                 print "<td>".$row['issue']."</td>";
                 print "<td>";
 
-                /* split comment string on \n and spit them into their own paragraph */
+                // split comment string on \n and spit them into their own paragraph
                 foreach (explode("\n", $row['comments']) as $comment)
                 {
                     print "<p>" . $comment . "</p>";
@@ -65,7 +78,7 @@ if($_GET)
                 print "</tbody>";
             }
 
-            print "</table>";
+            print "</table>";*/
 
         }
 
