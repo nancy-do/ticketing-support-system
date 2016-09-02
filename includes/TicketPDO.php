@@ -44,16 +44,6 @@ class TicketPDO
 
     public function createTables() {
         try {
-            /*$this->db->exec("CREATE TABLE IF NOT EXISTS tickets(
-                    ticket_id TEXT,
-                    firstName TEXT,
-                    lastName TEXT,
-                    email TEXT,
-                    os TEXT,
-                    issue TEXT,
-                    comments TEXT,
-                    status TEXT)");*/
-
             // TICKET INFO TABLE
             $this->db->exec("CREATE TABLE IF NOT EXISTS ticketInfo(
                     ticket_id text PRIMARY KEY,
@@ -74,11 +64,7 @@ class TicketPDO
                     ticket_id text PRIMARY KEY,
                     comments text,
                     FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
-
-        } catch(PDOException $e) {
-            echo $e->getMessage();
         }
-    }
 
     /**
      * @param Ticket $ticket
