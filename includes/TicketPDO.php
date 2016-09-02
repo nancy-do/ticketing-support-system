@@ -62,18 +62,18 @@ class TicketPDO
 
             // USER INFO TABLE
             $this->db->exec("CREATE TABLE IF NOT EXISTS userInfo(
-                    ticket_id text,
+                    ticket_id text PRIMARY KEY,
                     firstName text,
                     lastName text,
                     email text,
                     os text,
-                        FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
+                    FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
 
             // COMMENTS TABLE (comments are stored as a serialised array)
             $this->db->exec("CREATE TABLE IF NOT EXISTS comments(
-                    ticket_id text,
+                    ticket_id text PRIMARY KEY,
                     comments text,
-                        FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
+                    FOREIGN KEY (ticket_id) REFERENCES ticketInfo(ticket_id))");
 
         } catch(PDOException $e) {
             echo $e->getMessage();
@@ -171,14 +171,21 @@ class TicketPDO
 
     public function getIdData($id)
     {
+        // This now returns a ticket constructed from the 3 tables
         try
         {
-            $userInfo = $this->db->query("SELECT firstName, lastName, email, os 
-                                            FROM userInfo
-                                            WHERE ticket_id = " . $id);
-            $comments = $this->db->query("SELECT comments
-                                            FROM comments
-                                            WHERE ticket_id = " . $id);
+            // prevent sql injection by preparing, then executing
+            $ticketInfo = $this->db->prepare("SELECT U.firstName, U.lastName, U.email, U.os, T.issue, T.status, C.comments, T.ticket_id
+                                                FROM userInfo U NATURAL JOIN ticketInfo T NATURAL JOIN comments C
+                                                WHERE T.ticket_id = ?");
+            $ticketInfo->execute([$id]);
+            $data = $ticketInfo->fetch(PDO::FETCH_ASSOC);
+
+            return new Ticket($data['firstName'], $data['lastName'], $data['email'], $data['os'], $data['issue'], $data['status'], unserialize($data['comments']), $id);
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
         }
         /*try {
             // Prepare INSERT statement to SQLite3 file db
