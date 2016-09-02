@@ -14,7 +14,7 @@ class Ticket
 
     public function __construct($first, $last, $email, $os, $issue, $status, $comments, $id = null)
     {
-        /* when re-assigning a ticket you don't want to re-generate a new id
+        /* when re-assigning a ticket you don't want to re-generate a new id so
             this way, if id is null a new id is generated, otherwise the
             ticket takes the id passed */
         $this->id = ($id == null ? $this->generateID() : $id);
