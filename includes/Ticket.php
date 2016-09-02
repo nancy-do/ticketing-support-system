@@ -1,5 +1,4 @@
-    <?php
-session_start();
+<?php
 
 class Ticket
 {
@@ -13,28 +12,19 @@ class Ticket
     private $comments;
     private static $statuses = ["UNRESOLVED", "PENDING", "IN PROGRESS", "COMPLETED"];
 
-    public function __construct($first, $last, $email, $os, $issue, $comments)
+    public function __construct($first, $last, $email, $os, $issue, $status, $comments, $id = null)
     {
-        $this->id = $this->generateID();
+        /* when re-assigning a ticket you don't want to re-generate a new id
+            this way, if id is null a new id is generated, otherwise the
+            ticket takes the id passed */
+        $this->id = ($id == null ? $this->generateID() : $id);
         $this->firstName = $first;
         $this->lastName = $last;
         $this->email = $email;
         $this->os = $os;
         $this->issue = $issue;
+        $this->status = $status;
         $this->comments[] = $comments;
-        $this->status = "PENDING";
-
-
-        /*
-        if (in_array(strtoupper($status), $this->statuses))
-        {
-            $this->status = strtoupper($status);
-        }
-        else
-        {
-            $this->status = "PENDING";
-        }
-        */
     }
 
     private function generateID()
