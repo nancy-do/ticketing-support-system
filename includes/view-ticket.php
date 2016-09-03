@@ -48,8 +48,9 @@ foreach ($ticket->getComments() as $comment)
 $string .= "</td>";
 $string .= "<td>" . $ticket->getStatus() . "</td>";
 $string .= "</tr></tbody></table>";
-$string .= "<button class='btn btn-danger' type='submit'>Back</button> | ";
-$string .= "<button id='addComments' class='btn btn-danger' type='submit'>Add Comment</button>";
+$string .= "<button onclick=\"window.location.href='?page=home'\" class='btn btn-danger'>Back</button> | ";
+
+$string .= "<button id='addComments' class='btn btn-danger'>Add Comment</button>";
 $string .= "<div id='newComments'>";
 $string .= "<textarea id='commentsBox'></textarea>";
 $string .= "<button id='submitComments' class='btn btn-danger' type='submit'>Submit comments</button></div>";
