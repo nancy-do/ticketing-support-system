@@ -12,10 +12,19 @@
 </head>
 
 <body>
+<ul class="topnav" id="myTopnav">
+    <li class="sliding-middle-out"><a href="#Home">Home</a></li>
+    <li class="sliding-middle-out"><a href="#faqs">FAQs</a></li>
+    <li class="icon">
+        <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+    </li>
+</ul>
+
 <div id="rcorners1">
     <!-- Please adjust the code for button to link it back when ready -->
-    <button class="Button"><img src="assets/img/back-button.png"></button>
-    <h1 class="center">STAFF</h1>
+    <div class="box">
+        <h1 class="center">STAFF</h1>
+    </div>
 </div>
 
 <div class='search'>
@@ -33,6 +42,16 @@
 
 <footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </footer>
 </html>
 
