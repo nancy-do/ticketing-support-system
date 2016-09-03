@@ -20,6 +20,7 @@
     </li>
 </ul>
 
+<!-- Meant to be roundered corners, trying to make it edged -->
 <div id="rcorners1">
     <!-- Please adjust the code for button to link it back when ready -->
     <div class="box">
@@ -27,6 +28,7 @@
     </div>
 </div>
 
+<!-- Search bar -->
 <div class='search'>
     <div class='search_bar'>
         <input id='searchOne' type='checkbox'>
@@ -40,9 +42,9 @@
 </div>
 </body>
 
-<footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
+        /* For the Top Navigation bar */
         function myFunction() {
             var x = document.getElementById("myTopnav");
             if (x.className === "topnav") {
@@ -51,7 +53,25 @@
                 x.className = "topnav";
             }
         }
+
+        /* For the Footer to make it sticky*/
+        function footerAlign() {
+            $('footer').css('height', 'auto');
+            var footerHeight = $('footer').outerHeight();
+            $('body').css('padding-bottom', footerHeight);
+            $('footer').css('height', footerHeight);
+        }
+        $(document).ready(function(){
+            footerAlign();
+        });
+
+        $( window ).resize(function() {
+            footerAlign();
+        });
     </script>
+<footer>
+    <p>ITS @ RMIT</p>
+    <p class="sub">trusted by students campuswide.</p>
 </footer>
 </html>
 
