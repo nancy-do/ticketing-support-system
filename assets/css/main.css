@@ -516,6 +516,9 @@ th {
 td, th {
     border: 1px solid #ccc;
     text-align: left;
+    padding: 10px;
+    max-width: 500px;
+
 }
 
 .pricing-option {
@@ -695,6 +698,7 @@ select {
 }
 
 #table {
+    margin-left: -50px;
     margin-top: 80px;
     margin-bottom: 40px;
 }
