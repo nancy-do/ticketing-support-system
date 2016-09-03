@@ -29,7 +29,7 @@ if (!isset($ticket))
 
 $string = "<div class='container w'><div class='row centered'><div class='col-lg-12'>";
 $string .= "<table border=1>";
-$string .= "<thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comment</th><th>Status</th></tr></thead>";
+$string .= "<thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comments</th><th>Status</th></tr></thead>";
 
 $string .= "<tbody><tr>";
 $string .= "<td>" . $id . "</td>";
@@ -49,38 +49,10 @@ $string .= "</td>";
 $string .= "<td>" . $ticket->getStatus() . "</td>";
 $string .= "</tr></tbody></table>";
 
-//Both buttons are here, using bootstraps design classes and ID
 $string .= "<button class='btn btn-danger' type='submit'>Back</button> | ";
 $string .= "<button id='addComments' class='btn btn-danger' type='submit'>Add Comment</button>";
-
-$string .= '<script>$("#addComments").click(function() {
-    console.log("clicked");
-    var textarea = document.createElement("textarea");
-    var submitComments = document.createElement("button");
-
-    $(textarea).prop("id", "textarea");
-    $(textarea).appendTo("#view-results");
-    $(submitComments).prop("id", "submitComments");
-    $(submitComments).appendTo("#view-results");
-
-    $("#submitComments").click(function() {
-
-        var ticket = {};
-
-        $("td").each(function () {
-            console.log($(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, ""));
-            ticket[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "")] = $(this).text(); 
-        })
-
-        ticket["Comment"] .= $("#textarea").text();
-
-        console.log(ticket);
-
-        $.post("includes/updateTicket.php", ticket, function(returnData) {
-            $("table").fadeOut(500);
-            $(returnData).hide().appendTo("#view-results").fadeIn(500);
-        })
-    })
-});</script>';
+$string .= "<div id='comments' style='display:none'>";
+$string .= "<textarea id='commentsBox'></textarea>";
+$string .= "<button id='submitComments' class='btn btn-danger' type='submit'>Submit comments</button></div>";
 
 echo $string;
