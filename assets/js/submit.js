@@ -76,9 +76,23 @@ $(document).on('submit', '#staff-login-form', function()
     return false;
 });
 
+
+
+/*
+ $('#view-ticket-btn').click(function(){
+ window.location.href='?page=home';
+ });
+
+$(document).onclick('click', "#view-ticket-btn", function() {
+    window.location.href='?page=home';
+
+});
+ */
+
 $(document).on('click', "#addComments", function() {
 
     $("#newComments").fadeIn(FADE_TIME);
+    $("#comment-back-opt").fadeOut(FADE_TIME);
 
     $("#submitComments").click(function() {
 
