@@ -14,11 +14,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="js/toggle.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/validateForm.js"></script>
-    <script src="js/stickyNavbar.js"></script>
-    <script src="js/jsfiddle.js"></script>
+    <script src="assets/js/toggle.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/validateForm.js"></script>
+    <script src="assets/js/stickyNavbar.js"></script>
+    <script src="assets/js/jsfiddle.js"></script>
     <script>
         // Write on keyup event of keyword input element
         $( document ).ready(function(){
