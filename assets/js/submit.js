@@ -47,3 +47,32 @@ $(document).on('submit', '#staff-login-form', function()
 
     return false;
 });
+
+$(document).on('click', "#addComments", function() {
+
+    $("#comments").fadeIn(FADE_TIME);
+
+    $("#submitComments").click(function() {
+
+        $("table").fadeOut(FADE_TIME);
+        $("#comments").fadeOut(FADE_TIME);
+
+        var ticket = {};
+
+        // create key value pairs by using the text of the th (strip spaces from word) for the key the text of the td for value
+        $("td").each(function () {
+            ticket[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "").toLowerCase()] = $(this).text(); 
+        })
+
+        ticket["comments"] += $("#commentsBox").val();
+
+        console.log(ticket);
+
+        $.post("includes/updateTicket.php", ticket, function(returnData) {
+            console.log(returnData);
+            $(":animated").promise().done(function() {
+                $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
+            })
+        })
+    })
+});
