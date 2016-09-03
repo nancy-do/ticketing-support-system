@@ -3,14 +3,25 @@
  */
 
 const FADE_TIME = 500;
+const TICKET_VARS = ["id", "firstname", "lastname", "email", "os", "issue", "status", "comments"];
 
-// function postToServer(script, data, appendResult) {
-//     $.post(script, data, function(returnData) {
-//         $("animated").promise().done(function() {
-//             $(returnData).appendTo(appendResult).fadeIn(FADE_TIME);
-//         });
-//     });
-// }
+function postToServer(script, data, appendResult) {
+    $.post(script, data, function(returnData) {
+        $("animated").promise().done(function() {
+            $(returnData).appendTo(appendResult).fadeIn(FADE_TIME);
+        });
+    });
+}
+
+function constructTicketArray() {
+    var array = {};
+
+    $.each(TICKET_VARS, function(key) {
+        array[key] = 0;
+    });
+
+    return array;
+}
 
 $(document).on('submit', '#reg-form', function()
 {
@@ -67,7 +78,7 @@ $(document).on('click', "#addComments", function() {
         $(this).closest("div").fadeOut(FADE_TIME);
         $(this).fadeOut(FADE_TIME);
 
-        var ticket = {};
+        var ticket = constructTicketArray();
 
         // create key value pairs by using the text of the th (strip spaces from word) for the key the text of the td for value
         $("td").each(function () {
@@ -76,17 +87,19 @@ $(document).on('click', "#addComments", function() {
 
         ticket["comments"] += $("#commentsBox").val();
 
-        $.post("includes/updateTicket.php", ticket, function(returnData) {
-            $(":animated").promise().done(function() {
-                $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
-            })
-        })
+        postToServer("includes/updateTicket.php", ticket, "#view-results");
+
+        // $.post("includes/updateTicket.php", ticket, function(returnData) {
+        //     $(":animated").promise().done(function() {
+        //         $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
+        //     })
+        // })
     })
 });
 
 $(document).on("click", ".editTicket", function() {
     $("table").fadeOut(FADE_TIME);
-    var data = {}
+    var data = constructTicketArray();
 
     // fill array with ids and values
     $.each($(this).closest("tr").children("td"), function() {
@@ -102,11 +115,15 @@ $(document).on("click", ".editTicket", function() {
         $(".editBox").slideToggle(FADE_TIME);
     })
 
-    var ticket = {};
+    var ticket = constructTicketArray();
 
     $("#updateTicket").click(function() {
+        $(".editBox").slideToggle(FADE_TIME);
         $.each($(".editBox").children(), function() {
-            console.log($(this).val());
+            ticket[$(this).prop("id")] = $(this).val();
         })
+
+        // append to row for now - PLEASE CHANGE (i did this at 5am)
+        postToServer("includes/updateTicket.php", ticket, ".row");
     })
 });
