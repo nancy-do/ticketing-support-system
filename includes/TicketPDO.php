@@ -12,6 +12,9 @@ include('Ticket.php');
 
 class TicketPDO
 {
+    // this error occurs when id already exists in database
+    const PRIMARY_KEY_VIOLATION = 19;
+
     private $db;
     private static $instance;
 
@@ -75,7 +78,8 @@ class TicketPDO
      * @param Ticket $ticket
      */
     public function insertData(Ticket $ticket) {
-        try {
+        try
+        {
             // TICKET INFO INSERT
             $insert = "INSERT INTO ticketInfo(ticket_id, issue, status) VALUES (?, ?, ?)";
             $sql = $this->db->prepare($insert);
@@ -93,7 +97,17 @@ class TicketPDO
         }
         catch (PDOException $e)
         {
-            echo $e->getMessage();
+            if ($e->errorInfo[1] == TicketPDO::PRIMARY_KEY_VIOLATION)
+            {
+                // ID already exists so gen another and try to reinsert the ticket
+                $ticket->setID($ticket->generateID());
+                $this->insertData($ticket);
+            }
+            else
+            {
+                // some other error
+                echo $e->getMessage();
+            }
         }
     }
 

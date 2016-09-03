@@ -2,6 +2,9 @@
 
 class Ticket
 {
+    private static $id_length = 5;
+    private static $statuses = ["UNRESOLVED", "PENDING", "IN PROGRESS", "COMPLETED"];
+
     private $id;
     private $firstName;
     private $lastName;
@@ -10,7 +13,6 @@ class Ticket
     private $issue;
     private $status;
     private $comments;
-    private static $statuses = ["UNRESOLVED", "PENDING", "IN PROGRESS", "COMPLETED"];
 
     public function __construct($first, $last, $email, $os, $issue, $status, $comments, $id = null)
     {
@@ -25,19 +27,6 @@ class Ticket
         $this->issue = $issue;
         $this->status = $status;
         $this->comments = $comments;
-    }
-
-    private function generateID()
-    {
-        $characters = "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $randId = "";
-
-        for ($i = 0; $i < 5; $i++)
-        {
-            $randId .= $characters[rand(0, strlen($characters) - 1)];
-        }
-
-        return $randId;
     }
 
     public function getID()
@@ -80,9 +69,18 @@ class Ticket
         return $this->comments;
     }
 
-    public function setName($first, $last)
+    public function setID($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setFirstName($first)
     {
         $this->firstName = $first;
+    }
+
+    public function setLastName($last)
+    {
         $this->lastName = $last;
     }
 
@@ -104,7 +102,7 @@ class Ticket
     public function setStatus($status)
     {
 
-        if (in_array(strtoupper($status), $this->statuses))
+        if (in_array(strtoupper($status), Ticket::$statuses))
         {
             $this->status = strtoupper($status);
         }
@@ -117,5 +115,18 @@ class Ticket
     public function setComments($comments)
     {
         $this->comments = $comments;
+    }
+
+    public function generateID()
+    {
+        $characters = "01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $randId = "";
+
+        for ($i = 0; $i < Ticket::$id_length; $i++)
+        {
+            $randId .= $characters[rand(0, strlen($characters) - 1)];
+        }
+
+        return $randId;
     }
 }
