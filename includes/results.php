@@ -33,10 +33,10 @@ if($_GET)
                                 </button>
                             </span>
                     </div>
-                  </div>
+                  </div>';
 
-            <table border="1" id="table">
-            <thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comment</th><th>Status</th><th>Replies/comments</th><th>Update</th></tr></thead><tbody>';
+            /*<table border="1" id="table">
+            <thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comments</th><th>Status</th><th>Ticket Management</th></tr></thead><tbody>';*/
 
             $pdo = TicketPDO::getInstance();
             $ticketIDs = $pdo->getIDs();
@@ -45,7 +45,8 @@ if($_GET)
             {
                 $ticket = $pdo->getIdData($id['ticket_id']);
 
-                $string .= "<tr>";
+                $string .= "<table><thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comments</th><th>Status</th><th>Ticket Management</th></tr></thead>";
+                $string .= "<tr><tbody>";
                 $string .= "<td>" . $id['ticket_id'] . "</td>";
                 $string .= "<td>" . $ticket->getFirstName() . "</td>";
                 $string .= "<td>" . $ticket->getLastName() . "</td>";
@@ -61,12 +62,28 @@ if($_GET)
 
                 $string .= "</td>";
                 $string .= "<td>" . $ticket->getStatus() . "</td>";
-                $string .= "</tr>";
-
-                //print "<td><button class='btn btn-danger edit'>Edit</button>";
+                $string .= "<td><button class='btn btn-danger editTicket'>Manage</button></td></tr></tbody></table>";
             }
 
-            $string .= "</tbody></table>";
+            //$string .= "</tbody></table>";
+
+            // for staff ticket editing
+            $string .= '<div class="editBox">
+                            <label>ID:</label><input type="text" id="id" disabled>
+                            <label>First Name:</label><input type="text" id="firstname" disabled>
+                            <label>Last Name:</label><input type="text" id="lastname" disabled>
+                            <label>Email:</label><input type="text" id="email" disabled>
+                            <label>OS:</label><input type="text" id="os" disabled>
+                            <label>Issue:</label><input type="text" id="issue" disabled>
+                            <label>Comments:</label><textarea cols="30" rows="10"></textarea>
+                            <label>Status:</label><select id="status">
+                                <option value="PENDING">PENDING</option>
+                                <option value="UNRESOLVED">UNRESOLVED</option>
+                                <option value="INPROGRESS">IN PROGRESS</option>
+                                <option value="COMPLETE">COMPLETE</option>
+                            </select>
+                        </div>';
+
             echo $string;
         }
         else
