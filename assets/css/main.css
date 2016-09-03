@@ -496,10 +496,11 @@ li.active {
 /*
 Generic Styling, for Desktops/Laptops
 */
-table {
+/*table {
     width: 100%;
     border-collapse: collapse;
-}
+
+}*/
 
 /* Zebra striping */
 tr:nth-of-type(odd) {
@@ -700,4 +701,25 @@ select {
 
 #os {
     text-align: center;
+}
+
+
+/*##################################################################################################################################################
+################################################# NEW ADDITIONS BY ANTHONY PLEASE CHANGE WHEN FIXING ##############################################
+##################################################################################################################################################*/
+
+/* commented out line 499 */
+table {
+    margin: 5%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* for user comment addition */
+#comments {
+    display: none;
+}
+
+.editBox {
+    display: none;
 }
