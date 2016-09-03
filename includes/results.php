@@ -6,7 +6,8 @@
  * Time: 17:21
  */
 include('TicketPDO.php');
-$key = "password";
+//$key = "a2u0i1i6n";
+$key = "a"; // temp
 $id = null;
 
 if($_GET)
@@ -61,6 +62,8 @@ if($_GET)
                 $string .= "</td>";
                 $string .= "<td>" . $ticket->getStatus() . "</td>";
                 $string .= "</tr>";
+
+                //print "<td><button class='btn btn-danger edit'>Edit</button>";
             }
 
             $string .= "</tbody></table>";
@@ -72,6 +75,42 @@ if($_GET)
         }
 
         ?>
-
     </div><!-- row -->
 </div><!-- container -->
+
+<!-- Crappy way to edit ticket - need a better way
+<div id="ticketData">
+    <button id="return" class="btn btn-danger">Back</button>
+    <label>ID:</label>
+        <input type="text" name="id">
+
+    <label>First Name:</label>
+        <input required type="text" name="firstName">
+
+    <label>Last Name:</label>
+        <input required type="text" name="lastName">
+
+    <label>Email:</label>
+        <input required type="email" name="email">
+
+    <label>OS:</label>
+        <input type="text" name="os">
+
+    <label>Issue:</label>
+        <textarea required name="issue" autocapitalize="sentences"></textarea>
+
+    <label>Comment: </label>
+        <textarea required name="comments" autocapitalize="sentences"></textarea>
+
+    <label>Status</label>
+        <select name="status">
+            <option value="PENDING">PENDING</option>
+            <option value="UNRESOLVED">UNRESOLVED</option>
+            <option value="IN PROGRESS">IN PROGRESS</option>
+            <option value="COMPLETED">COMPLETED</option>
+        </select>
+
+    <button id="update" class="btn btn-danger">Update</button>
+</div>
+
+<script src="js/edit_ticket.js"></script> -->
