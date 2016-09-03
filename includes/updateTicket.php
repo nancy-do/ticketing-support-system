@@ -10,6 +10,7 @@ if (!isset($_POST))
 $pdo = TicketPDO::getInstance();
 $commentsArray = explode("\n", $_POST["comments"]);
 
+// post var keys must be lower case unless someone can change js script to adjust them to camelcase
 $updTicket = new Ticket("lol", $_POST["lastname"], $_POST["email"], $_POST["os"], $_POST["issue"], $_POST["status"], $commentsArray, $_POST["id"]);
 $oldTicket = $pdo->getIdData($_POST["id"]);
 $updArr = $updTicket->getVars();
