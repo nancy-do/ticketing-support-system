@@ -115,10 +115,8 @@ class TicketPDO
     {
         try
         {
-            $update = $this->db->prepare("UPDATE ticketInfo
-                                            SET issue = ?,
-                                                status = ?
-                                            WHERE ticket_id = ?");
+
+            $update = $this->db->prepare("UPDATE ticketInfo SET issue = ?, status = ? WHERE ticket_id = ?");
             $update->execute([$ticket->getIssue(), $ticket->getStatus(), $ticket->getID()]);
         }
         catch (PDOException $e)
@@ -131,12 +129,7 @@ class TicketPDO
     {
         try
         {
-            $update = $this->db->prepare("UPDATE userInfo
-                                            SET firstName = ?,
-                                                lastName = ?,
-                                                email = ?,
-                                                os = ?
-                                            WHERE ticket_id = ?");
+            $update = $this->db->prepare("UPDATE userInfo SET firstName = ?, lastName = ?, email = ?, os = ? WHERE ticket_id = ?");
             $update->execute([$ticket->getFirstName(), $ticket->getLastName(), $ticket->getEmail(), $ticket->getOS(), $ticket->getID()]);
 
         }
@@ -150,9 +143,8 @@ class TicketPDO
     {
         try
         {
-            $update = $this->db->prepare("UPDATE comments
-                                            SET comments = ?
-                                            WHERE ticket_id = ?");
+
+            $update = $this->db->prepare("UPDATE comments SET comments = ? WHERE ticket_id = ?");
             $update->execute([serialize($ticket->getComments()), $ticket->getID()]);
         }
         catch (PDOException $e)
