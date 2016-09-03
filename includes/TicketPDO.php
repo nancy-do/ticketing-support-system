@@ -97,7 +97,7 @@ class TicketPDO
         }
         catch (PDOException $e)
         {
-            if ($e->errorInfo[1] == TicketPDO::PRIMARY_KEY_VIOLATION)
+            if ($e->errorInfo[1] === TicketPDO::PRIMARY_KEY_VIOLATION)
             {
                 // ID already exists so gen another and try to reinsert the ticket
                 $ticket->setID($ticket->generateID());
