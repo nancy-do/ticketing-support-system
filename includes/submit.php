@@ -5,6 +5,7 @@ include('TicketPDO.php');
 if (!isset($_GET)))
 {
     echo "<p>Invalid data posted!</p>";
+    return;
 }
 
 $firstName = $_GET['firstName'];

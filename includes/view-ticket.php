@@ -13,6 +13,7 @@ $error = "<h3>ID DOES NOT EXIST</h3><p><strong>WARNING - You have entered an inc
 if (!isset($_GET['ticketID']))
 {
     echo $error;
+    return;
 }
 
 $id = $_GET['ticketID'];
@@ -23,6 +24,7 @@ $ticket = $pdo->getIdData($id);
 if (!isset($ticket))
 {
     echo $error;
+    return;
 }
 
 $string = "<div class='container w'><div class='row centered'><div class='col-lg-12'>";
