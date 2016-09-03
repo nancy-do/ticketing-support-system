@@ -129,4 +129,17 @@ class Ticket
 
         return $randId;
     }
+
+    // returns an associative array of all vars in the class
+    public function getVars()
+    {
+        return ["id" => $this->id,
+                "firstName" => $this->firstName,
+                "lastName" =>$this->lastName,
+                "email" => $this->email,
+                "os" => $this->os,
+                "issue" => $this->issue,
+                "status" => $this->status,
+                "comments" => implode("\n", $this->comments)];
+    }
 }
