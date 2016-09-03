@@ -48,11 +48,14 @@ foreach ($ticket->getComments() as $comment)
 $string .= "</td>";
 $string .= "<td>" . $ticket->getStatus() . "</td>";
 $string .= "</tr></tbody></table>";
-$string .= "<button onclick=\"window.location.href='?page=home'\" class='btn btn-danger'>Back</button> | ";
-
-$string .= "<button id='addComments' class='btn btn-danger'>Add Comment</button>";
-$string .= "<div id='newComments'>";
-$string .= "<textarea id='commentsBox'></textarea>";
-$string .= "<button id='submitComments' class='btn btn-danger' type='submit'>Submit comments</button></div>";
+$string .= "<div id = 'comment-back-opt'>
+                <button id = 'view-ticket-btn' onclick=\"window.location.href='?page=home'\" class='btn btn-danger'>Back</button> |
+                <button id='addComments' class='btn btn-danger'>Add Comment</button>
+            </div>";
+$string .= "<div id='newComments'><div class='col-lg-12'>
+            <h3>Type down below to add to your comments</h3>
+            <textarea id='commentsBox'></textarea><br><br>
+            <button onclick=\"window.location.href='?page=home'\" class='btn btn-danger'>Back</button> | 
+            <button id='submitComments' class='btn btn-danger' type='submit'>Submit comments</button></div></div>";
 
 echo $string;
