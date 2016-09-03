@@ -30,8 +30,7 @@ class TicketPDO
      */
     protected function __construct() {
         try {
-            $this->db = new PDO('sqlite:..\tickets.db');      /* WINDOWS */
-            //$this->db = new PDO('sqlite:../tickets.db');        /* LINUX, MAC */
+            $this->db = new PDO("sqlite:.." . DIRECTORY_SEPARATOR . "tickets.db");
 
             // Set errormode to exceptions
             $this->db->setAttribute(PDO::ATTR_ERRMODE,
