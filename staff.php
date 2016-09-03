@@ -21,7 +21,7 @@
 </ul>
 
 <!-- Meant to be roundered corners, trying to make it edged -->
-<div id="rcorners1">
+<div id="berryBackground">
     <!-- Please adjust the code for button to link it back when ready -->
     <div class="box">
         <h1 class="center">STAFF</h1>
@@ -53,25 +53,10 @@
                 x.className = "topnav";
             }
         }
-
-        /* For the Footer to make it sticky*/
-        function footerAlign() {
-            $('footer').css('height', 'auto');
-            var footerHeight = $('footer').outerHeight();
-            $('body').css('padding-bottom', footerHeight);
-            $('footer').css('height', footerHeight);
-        }
-        $(document).ready(function(){
-            footerAlign();
-        });
-
-        $( window ).resize(function() {
-            footerAlign();
-        });
     </script>
 <footer>
-    <p>ITS @ RMIT</p>
-    <p class="sub">trusted by students campuswide.</p>
+    <p>ITS <img src="assets/img/circle.png"> RMIT</p>
+    <p class="sub">trusted by students nowhere.</p>
 </footer>
 </html>
 
