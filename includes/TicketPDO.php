@@ -111,8 +111,59 @@ class TicketPDO
         }
     }
 
+    public function updateTicket(Ticket $ticket)
+    {
+        try
+        {
+            $update = $this->db->prepare("UPDATE ticketInfo
+                                            SET issue = ?,
+                                                status = ?
+                                            WHERE ticket_id = ?");
+            $update->execute([$ticket->getIssue(), $ticket->getStatus(), $ticket->getID()]);
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function updateUser(Ticket $ticket)
+    {
+        try
+        {
+            $update = $this->db->prepare("UPDATE userInfo
+                                            SET firstName = ?,
+                                                lastName = ?,
+                                                email = ?,
+                                                os = ?
+                                            WHERE ticket_id = ?");
+            $update->execute([$ticket->getFirstName(), $ticket->getLastName(), $ticket->getEmail(), $ticket->getOS(), $ticket->getID()]);
+
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
+    public function updateComments(Ticket $ticket)
+    {
+        try
+        {
+            $update = $this->db->prepare("UPDATE comments
+                                            SET comments = ?
+                                            WHERE ticket_id = ?");
+            $update->execute([serialize($ticket->getComments()), $ticket->getID()]);
+        }
+        catch (PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
     public function getIDs()
     {
+        // this returns every ticket id in the db
         try
         {
             return $this->db->query("SELECT ticket_id FROM ticketInfo");
