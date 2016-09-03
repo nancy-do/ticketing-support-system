@@ -35,7 +35,7 @@ if($_GET)
                   </div>
 
             <table border="1" id="table">
-            <thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comment</th><th>Status</th><th>Replies/comments</th><th>Update</th></tr></thead></table>';
+            <thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comment</th><th>Status</th><th>Replies/comments</th><th>Update</th></tr></thead><tbody>';
 
             $pdo = TicketPDO::getInstance();
             $ticketIDs = $pdo->getIDs();
@@ -44,7 +44,7 @@ if($_GET)
             {
                 $ticket = $pdo->getIdData($id['ticket_id']);
 
-                $string .= "<table><tr>";
+                $string .= "<tr>";
                 $string .= "<td>" . $id['ticket_id'] . "</td>";
                 $string .= "<td>" . $ticket->getFirstName() . "</td>";
                 $string .= "<td>" . $ticket->getLastName() . "</td>";
@@ -60,9 +60,10 @@ if($_GET)
 
                 $string .= "</td>";
                 $string .= "<td>" . $ticket->getStatus() . "</td>";
-                $string .= "</tr></table>";
+                $string .= "</tr>";
             }
 
+            $string .= "</tbody></table>";
             echo $string;
         }
         else
