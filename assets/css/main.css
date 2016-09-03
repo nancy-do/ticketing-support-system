@@ -716,7 +716,7 @@ table {
 }
 
 /* for user comment addition */
-#comments {
+#newComments {
     display: none;
 }
 
