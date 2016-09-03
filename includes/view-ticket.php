@@ -15,10 +15,34 @@ if($_GET)
     print "<div class=\"container w\"><div class=\"row centered\"><div class=\"col-lg-12\">";
 
     $string = "<table border=1>";
-    $string .= "<thead><tr><th><strong>Id</th><th><strong>First Name</strong></th><th><strong>Last Name</strong></th><th><strong>Email</strong></th><th><strong>OS</strong></th><th><strong>Issue</strong></th><th><strong>Comment</strong></th></tr></thead>";
+    $string .= "<thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comment</th><th>Status</th></tr></thead>";
 
     $pdo = TicketPDO::getInstance();
-//$results = $pdo->getIdData($id);
+    $ticket = $pdo->getIdData($id);
+
+    $string .= "<tbody><tr>";
+    $string .= "<td>" . $id . "</td>";
+    $string .= "<td>" . $ticket->getFirstName() . "</td>";
+    $string .= "<td>" . $ticket->getLastName() . "</td>";
+    $string .= "<td>" . $ticket->getEmail() . "</td>";
+    $string .= "<td>" . $ticket->getOS() . "</td>";
+    $string .= "<td>" . $ticket->getIssue() . "</td>";
+    $string .= "<td>";
+
+    foreach ($ticket->getComments() as $comment)
+    {
+        $string .= $comment . "\n";
+    }
+
+    $string .= "</td>";
+    $string .= "<td>" . $ticket->getStatus() . "</td>";
+    $string .= "</tr></tbody></table>";
+
+    echo $string;
+}
+
+    /*$pdo = TicketPDO::getInstance();
+    //$results = $pdo->getIdData($id);
     $results = $pdo->getData();
     $found = 0;
     foreach($results as $row)
@@ -43,9 +67,9 @@ if($_GET)
     else
     {
         print "<h3>ID DOES NOT EXIST</h3>";
-        print "<strong><p>WARNING - You have entered an incorrect Ticket ID</p></strong>";
+        print "<p>WARNING - You have entered an incorrect Ticket ID</p>";
     }
-}
+}*/
 
 print "</div></div></div>";
 ?>
