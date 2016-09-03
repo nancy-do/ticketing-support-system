@@ -10,11 +10,13 @@ if (!isset($_POST))
 $pdo = TicketPDO::getInstance();
 $commentsArray = explode("\n", $_POST["comments"]);
 
-// post var keys must be lower case unless someone can change js script to adjust them to camelcase
+// post var keys must be lower case unless someone can change js to adjust them to camelcase
 $updTicket = new Ticket("lol", $_POST["lastname"], $_POST["email"], $_POST["os"], $_POST["issue"], $_POST["status"], $commentsArray, $_POST["id"]);
 $oldTicket = $pdo->getIdData($_POST["id"]);
+
 $updArr = $updTicket->getVars();
 $oldArr = $oldTicket->getVars();
+
 $whatsNew = array_diff_assoc($updArr, $oldArr);
 
 // Check whats changed and this way limit the database calls for security etc ID SHOULD NEVER CHANGE ON TICKET UPDATE
@@ -32,3 +34,5 @@ if (array_key_exists("comments", $whatsNew))
 {
     $pdo->updateComments($updTicket);
 }
+
+echo "<p><strong>Success! Added to database.</strong></p>";
