@@ -68,11 +68,11 @@ $string .= '<script>$("#addComments").click(function() {
         var ticket = {};
 
         $("td").each(function () {
-            console.log($(this).closest("table th").eq($(this).index()).html());
-            ticket[$(this).closest("table th").eq($(this).index()).html()] = $(this).val(); 
+            console.log($(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, ""));
+            ticket[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "")] = $(this).text(); 
         })
 
-        //ticket["comments"] .= $("#textarea").val();
+        ticket["Comment"] .= $("#textarea").text();
 
         console.log(ticket);
 
