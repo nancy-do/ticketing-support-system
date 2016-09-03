@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Lato';
+/* Navigation bar and responsiveness references: http://www.w3schools.com/howto/howto_js_topnav.asp */
 
 body {
     font-family: 'Baloo Paaji', cursive;
@@ -6,10 +7,77 @@ body {
     margin: 0;
 }
 
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.box
+{
+    border: 1px solid white;
+    padding: 1%;
+    margin: auto;
+    width: 21%;
+}
+
+/* Float the list items side by side */
+ul.topnav li {float: left;}
+
+/* Style the links inside the list items */
+ul.topnav li a
+{
+    display: inline-block;
+    color: #b52b4a;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover
+{
+    background-color: #ffffff;
+}
+
+ul.topnav li.icon
+{
+    display: none;
+}
+
+@media screen and (max-width:680px) {
+    ul.topnav li:not(:first-child) {display: none;}
+    ul.topnav li.icon {
+        float: right;
+        display: inline-block;
+    }
+}
+
+
+@media screen and (max-width:680px) {
+    ul.topnav.responsive {position: relative;}
+    ul.topnav.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    ul.topnav.responsive li {
+        float: none;
+        display: inline;
+    }
+    ul.topnav.responsive li a {
+        display: block;
+        text-align: left;
+    }
+}
+
 #rcorners1
 {
     color: #ffffff;
-    border-radius: 25px;
     background: #b52b4a;
     padding: 5%;
     width: auto;
@@ -41,11 +109,29 @@ body {
     -ms-transition: opacity 2s ease-in;
     transition: opacity 2s ease-in;
 }
-#fade div.load {
+#fade div.load
+{
     opacity: 1;
 }
 
-
+.sliding-middle-out {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+}
+.sliding-middle-out:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+    width: 100%;
+    background: #b52b4a;
+}
 
 
 
