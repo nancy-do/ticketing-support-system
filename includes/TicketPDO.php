@@ -30,6 +30,7 @@ class TicketPDO
      */
     protected function __construct() {
         try {
+            // directory_separator is php constant either \ or / depending on os
             $this->db = new PDO("sqlite:.." . DIRECTORY_SEPARATOR . "tickets.db");
 
             // Set errormode to exceptions
