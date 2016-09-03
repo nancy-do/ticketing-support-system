@@ -115,13 +115,19 @@ class TicketPDO
         try
         {
             // prevent sql injection by preparing, then executing
-            $ticketInfo = $this->db->prepare("SELECT U.firstName, U.lastName, U.email, U.os, T.issue, T.status, C.comments, T.ticket_id
+            $ticketInfo = $this->db->prepare("SELECT U.firstName, U.lastName, U.email, U.os, T.issue, T.status, C.comments
                                                 FROM userInfo U NATURAL JOIN ticketInfo T NATURAL JOIN comments C
                                                 WHERE T.ticket_id = ?");
             $ticketInfo->execute([$id]);
-            $data = $ticketInfo->fetch(PDO::FETCH_ASSOC);
+            $data = $ticketInfo->fetch(PDO::FETCH_OBJ);
 
-            return new Ticket($data['firstName'], $data['lastName'], $data['email'], $data['os'], $data['issue'], $data['status'], unserialize($data['comments']), $id);
+            // Check if query was successful
+            if (!isset($data->firstName))
+            {
+                return null;
+            }
+
+            return new Ticket($data->firstName, $data->lastName, $data->email, $data->os, $data->issue, $data->status, unserialize($data->comments), $id);
         }
         catch (PDOException $e)
         {
