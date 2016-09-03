@@ -4,6 +4,14 @@
 
 const FADE_TIME = 500;
 
+// function postToServer(script, data, appendResult) {
+//     $.post(script, data, function(returnData) {
+//         $("animated").promise().done(function() {
+//             $(returnData).appendTo(appendResult).fadeIn(FADE_TIME);
+//         });
+//     });
+// }
+
 $(document).on('submit', '#reg-form', function()
 {
     var data = $(this).serialize();
@@ -48,6 +56,34 @@ $(document).on('submit', '#staff-login-form', function()
     return false;
 });
 
+$(document).on('click', "#addComments", function() {
+
+    $("#newComments").fadeIn(FADE_TIME);
+
+    $("#submitComments").click(function() {
+
+        $("table").fadeOut(FADE_TIME);
+        $("#addComments").fadeOut(FADE_TIME);
+        $(this).closest("div").fadeOut(FADE_TIME);
+        $(this).fadeOut(FADE_TIME);
+
+        var ticket = {};
+
+        // create key value pairs by using the text of the th (strip spaces from word) for the key the text of the td for value
+        $("td").each(function () {
+            ticket[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "").toLowerCase()] = $(this).text(); 
+        })
+
+        ticket["comments"] += $("#commentsBox").val();
+
+        $.post("includes/updateTicket.php", ticket, function(returnData) {
+            $(":animated").promise().done(function() {
+                $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
+            })
+        })
+    })
+});
+
 $(document).on("click", ".editTicket", function() {
     $("table").fadeOut(FADE_TIME);
     var data = {}
@@ -63,33 +99,14 @@ $(document).on("click", ".editTicket", function() {
     })
 
     $(":animated").promise().done(function() {
-        $(".editBox").slideToggle("slow");
+        $(".editBox").slideToggle(FADE_TIME);
     })
-});
 
-$(document).on('click', "#addComments", function() {
+    var ticket = {};
 
-    $("#comments").fadeIn(FADE_TIME);
-
-    $("#submitComments").click(function() {
-
-        $("table").fadeOut(FADE_TIME);
-        $("#comments").fadeOut(FADE_TIME);
-        $("#addComments").fadeOut(FADE_TIME);
-
-        var ticket = {};
-
-        // create key value pairs by using the text of the th (strip spaces from word) for the key the text of the td for value
-        $("td").each(function () {
-            ticket[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "").toLowerCase()] = $(this).text(); 
-        })
-
-        ticket["comments"] += $("#commentsBox").val();
-
-        $.post("includes/updateTicket.php", ticket, function(returnData) {
-            $(":animated").promise().done(function() {
-                $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
-            })
+    $("#updateTicket").click(function() {
+        $.each($(".editBox").children(), function() {
+            console.log($(this).val());
         })
     })
 });
