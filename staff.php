@@ -20,13 +20,15 @@
     </li>
 </ul>
 
-<div id="rcorners1">
+<!-- Meant to be roundered corners, trying to make it edged -->
+<div id="berryBackground">
     <!-- Please adjust the code for button to link it back when ready -->
     <div class="box">
         <h1 class="center">STAFF</h1>
     </div>
 </div>
 
+<!-- Search bar -->
 <div class='search'>
     <div class='search_bar'>
         <input id='searchOne' type='checkbox'>
@@ -40,9 +42,9 @@
 </div>
 </body>
 
-<footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
+        /* For the Top Navigation bar */
         function myFunction() {
             var x = document.getElementById("myTopnav");
             if (x.className === "topnav") {
@@ -52,6 +54,9 @@
             }
         }
     </script>
+<footer>
+    <p>ITS <img src="assets/img/circle.png"> RMIT</p>
+    <p class="sub">trusted by students nowhere.</p>
 </footer>
 </html>
 

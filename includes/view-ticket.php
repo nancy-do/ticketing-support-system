@@ -48,7 +48,9 @@ foreach ($ticket->getComments() as $comment)
 $string .= "</td>";
 $string .= "<td>" . $ticket->getStatus() . "</td>";
 $string .= "</tr></tbody></table>";
+
 //Both buttons are here, using bootstraps design classes and ID
-$string .= "<button id=\"btn-view-form\" class=\"btn btn-danger\" type=\"submit\">Back</button> | ";
-$string .= "<button id=\"btn-view-form\" class=\"btn btn-danger\" type=\"submit\">Add Comment</button>";
+$string .= "<button id='back-ticket' class='btn btn-danger' type='submit'>Back</button> | ";
+$string .= "<button id='addComments' class='btn btn-danger' type='submit'>Add Comment</button>";
+
 echo $string;

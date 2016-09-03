@@ -1,18 +1,26 @@
 @import 'https://fonts.googleapis.com/css?family=Lato';
 /* Navigation bar and responsiveness references: http://www.w3schools.com/howto/howto_js_topnav.asp */
 
-body {
+html
+{
+    position: relative;
+    min-height: 100%;
+}
+
+body
+{
     font-family: 'Baloo Paaji', cursive;
     padding: 0;
     margin: 0;
 }
 
-ul.topnav {
+ul.topnav
+{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #252b33;
 }
 
 .box
@@ -24,13 +32,18 @@ ul.topnav {
 }
 
 /* Float the list items side by side */
-ul.topnav li {float: left;}
+ul.topnav li
+{
+    font-family: 'Baloo Paaji', cursive;
+    float: right;
+}
 
 /* Style the links inside the list items */
 ul.topnav li a
 {
     display: inline-block;
-    color: #b52b4a;
+    background-color: #252b33;
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -41,7 +54,10 @@ ul.topnav li a
 /* Change background color of links on hover */
 ul.topnav li a:hover
 {
-    background-color: #ffffff;
+    -moz-box-shadow: 0 0 1px #ccc;
+    -webkit-box-shadow: 0 0 1px #ccc;
+    box-shadow: 0 0 1px #ccc;
+    background-color: ;
 }
 
 ul.topnav li.icon
@@ -49,23 +65,35 @@ ul.topnav li.icon
     display: none;
 }
 
-@media screen and (max-width:680px) {
-    ul.topnav li:not(:first-child) {display: none;}
-    ul.topnav li.icon {
-        float: right;
+@media screen and (max-width:680px)
+{
+    ul.topnav li:not(:first-child) {
+        display: none;
+    }
+
+    ul.topnav li.icon
+    {
+        float: left;
         display: inline-block;
     }
 }
 
+@media screen and (max-width:680px)
+{
+    ul.topnav.responsive
+    {
+        position: relative;
+    }
 
-@media screen and (max-width:680px) {
-    ul.topnav.responsive {position: relative;}
-    ul.topnav.responsive li.icon {
+    ul.topnav.responsive li.icon
+    {
         position: absolute;
         right: 0;
         top: 0;
     }
-    ul.topnav.responsive li {
+
+    ul.topnav.responsive li
+    {
         float: none;
         display: inline;
     }
@@ -75,7 +103,7 @@ ul.topnav li.icon
     }
 }
 
-#rcorners1
+#berryBackground
 {
     color: #ffffff;
     background: #b52b4a;
@@ -84,12 +112,14 @@ ul.topnav li.icon
     height: 95%;
 }
 
-.center {
+.center
+{
     text-align: center;
     font-family: 'Lato', sans-serif;
 }
 
-.Button{
+.Button
+{
     background:url(assets/img/back-button.png) no-repeat;
     cursor:pointer;
     border:none;
@@ -98,7 +128,8 @@ ul.topnav li.icon
     mix-blend-mode: multiply;
 }
 
-#fade div {
+#fade div
+{
     opacity: 0;
     margin-top: 25px;
     font-size: 21px;
@@ -109,17 +140,22 @@ ul.topnav li.icon
     -ms-transition: opacity 2s ease-in;
     transition: opacity 2s ease-in;
 }
+
 #fade div.load
 {
     opacity: 1;
 }
 
-.sliding-middle-out {
+/* Sliding animation underline */
+.sliding-middle-out
+{
     display: inline-block;
     position: relative;
     padding-bottom: 3px;
 }
-.sliding-middle-out:after {
+
+.sliding-middle-out:after
+{
     content: '';
     display: block;
     margin: auto;
@@ -128,10 +164,41 @@ ul.topnav li.icon
     background: transparent;
     transition: width .5s ease, background-color .5s ease;
 }
-.sliding-middle-out:hover:after {
+
+.sliding-middle-out:hover:after
+{
     width: 100%;
-    background: #b52b4a;
+    background: #ffffff;
 }
 
+footer
+{
+    font-family: "brandon-grotesque", sans-serif;
+    letter-spacing: .08em;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 40px;
+    letter-spacing: .08em;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    clear: both;
+    background-color: #252b33;
+    color: #ffffff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+}
 
-
+.sub
+{
+    margin-top: 70px;
+    color: #7e8890;
+    font: 300 10px/1em "brandon-grotesque", sans-serif;
+    letter-spacing: .1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
