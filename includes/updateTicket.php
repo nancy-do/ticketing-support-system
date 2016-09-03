@@ -12,7 +12,8 @@ $commentsArray = explode("\n", $_POST["comments"]);
 
 // post var keys must be lower case unless someone can change js to adjust them to camelcase
 $updTicket = new Ticket("lol", $_POST["lastname"], $_POST["email"], $_POST["os"], $_POST["issue"], $_POST["status"], $commentsArray, $_POST["id"]);
-$oldTicket = $pdo->getIdData($_POST["id"]);
+$id = $_POST["id"];
+$oldTicket = $pdo->getIdData($id);
 
 $updArr = $updTicket->getVars();
 $oldArr = $oldTicket->getVars();
@@ -36,3 +37,36 @@ if (array_key_exists("comments", $whatsNew))
 }
 
 echo "<p><strong>Success! Added to database.</strong></p>";
+
+$ticket = $pdo->getIdData($id);
+
+if (!isset($ticket))
+{
+    echo $error;
+    return;
+}
+
+$string = "<div class='col-lg-12'>";
+$string .= "<table border=1>";
+$string .= "<thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comments</th><th>Status</th></tr></thead>";
+
+$string .= "<tbody><tr>";
+$string .= "<td>" . $id . "</td>";
+$string .= "<td>" . $ticket->getFirstName() . "</td>";
+$string .= "<td>" . $ticket->getLastName() . "</td>";
+$string .= "<td>" . $ticket->getEmail() . "</td>";
+$string .= "<td>" . $ticket->getOS() . "</td>";
+$string .= "<td>" . $ticket->getIssue() . "</td>";
+$string .= "<td>";
+
+foreach ($ticket->getComments() as $comment)
+{
+    $string .= $comment . "\n";
+}
+
+$string .= "</td>";
+$string .= "<td>" . $ticket->getStatus() . "</td>";
+$string .= "</tr></tbody></table> 
+            <button id = 'view-ticket-btn' onclick=\"window.location.href='?page=home'\" class='btn btn-danger'>Back</button></div>";
+
+echo $string;
