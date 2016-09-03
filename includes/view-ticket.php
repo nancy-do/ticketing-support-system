@@ -51,7 +51,7 @@ $string .= "</tr></tbody></table>";
 
 $string .= "<button class='btn btn-danger' type='submit'>Back</button> | ";
 $string .= "<button id='addComments' class='btn btn-danger' type='submit'>Add Comment</button>";
-$string .= "<div id='comments' style='display:none'>";
+$string .= "<div id='comments'>";
 $string .= "<textarea id='commentsBox'></textarea>";
 $string .= "<button id='submitComments' class='btn btn-danger' type='submit'>Submit comments</button></div>";
 
