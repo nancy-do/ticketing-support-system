@@ -16,6 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="assets/js/toggle.js"></script>
     <script src="assets/js/submit.js"></script>
+    <script src="assets/js/search.js"></script>
     <script src="assets/js/validateForm.js"></script>
     <script src="assets/js/stickyNavbar.js"></script>
     <script src="assets/js/jsfiddle.js"></script>
