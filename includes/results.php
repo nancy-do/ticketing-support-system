@@ -69,19 +69,21 @@ if($_GET)
 
             // for staff ticket editing
             $string .= '<div class="editBox">
+                            <button class="btn btn-danger back">Back</button>
                             <label>ID:</label><input type="text" id="id" disabled>
-                            <label>First Name:</label><input type="text" id="firstname" disabled>
-                            <label>Last Name:</label><input type="text" id="lastname" disabled>
-                            <label>Email:</label><input type="text" id="email" disabled>
-                            <label>OS:</label><input type="text" id="os" disabled>
-                            <label>Issue:</label><input type="text" id="issue" disabled>
-                            <label>Comments:</label><textarea cols="30" rows="10"></textarea>
+                            <label>First Name:</label><input type="text" id="firstname">
+                            <label>Last Name:</label><input type="text" id="lastname">
+                            <label>Email:</label><input type="text" id="email">
+                            <label>OS:</label><input type="text" id="os">
+                            <label>Issue:</label><input type="text" id="issue">
+                            <label>Comments:</label><textarea id="comments" cols="30" rows="10"></textarea>
                             <label>Status:</label><select id="status">
                                 <option value="PENDING">PENDING</option>
                                 <option value="UNRESOLVED">UNRESOLVED</option>
                                 <option value="INPROGRESS">IN PROGRESS</option>
                                 <option value="COMPLETE">COMPLETE</option>
                             </select>
+                            <button id="updateTicket" class="btn btn-danger">Update ticket</button>
                         </div>';
 
             echo $string;
@@ -94,40 +96,3 @@ if($_GET)
         ?>
     </div><!-- row -->
 </div><!-- container -->
-
-<!-- Crappy way to edit ticket - need a better way
-<div id="ticketData">
-    <button id="return" class="btn btn-danger">Back</button>
-    <label>ID:</label>
-        <input type="text" name="id">
-
-    <label>First Name:</label>
-        <input required type="text" name="firstName">
-
-    <label>Last Name:</label>
-        <input required type="text" name="lastName">
-
-    <label>Email:</label>
-        <input required type="email" name="email">
-
-    <label>OS:</label>
-        <input type="text" name="os">
-
-    <label>Issue:</label>
-        <textarea required name="issue" autocapitalize="sentences"></textarea>
-
-    <label>Comment: </label>
-        <textarea required name="comments" autocapitalize="sentences"></textarea>
-
-    <label>Status</label>
-        <select name="status">
-            <option value="PENDING">PENDING</option>
-            <option value="UNRESOLVED">UNRESOLVED</option>
-            <option value="IN PROGRESS">IN PROGRESS</option>
-            <option value="COMPLETED">COMPLETED</option>
-        </select>
-
-    <button id="update" class="btn btn-danger">Update</button>
-</div>
-
-<script src="js/edit_ticket.js"></script> -->
