@@ -48,7 +48,39 @@ foreach ($ticket->getComments() as $comment)
 $string .= "</td>";
 $string .= "<td>" . $ticket->getStatus() . "</td>";
 $string .= "</tr></tbody></table>";
+
 //Both buttons are here, using bootstraps design classes and ID
-$string .= "<button id=\"btn-view-form\" class=\"btn btn-danger\" type=\"submit\">Back</button> | ";
-$string .= "<button id=\"btn-view-form\" class=\"btn btn-danger\" type=\"submit\">Add Comment</button>";
+$string .= "<button class='btn btn-danger' type='submit'>Back</button> | ";
+$string .= "<button id='addComments' class='btn btn-danger' type='submit'>Add Comment</button>";
+
+$string .= '<script>$("#addComments").click(function() {
+    console.log("clicked");
+    var textarea = document.createElement("textarea");
+    var submitComments = document.createElement("button");
+
+    $(textarea).prop("id", "textarea");
+    $(textarea).appendTo("#view-results");
+    $(submitComments).prop("id", "submitComments");
+    $(submitComments).appendTo("#view-results");
+
+    $("#submitComments").click(function() {
+
+        var ticket = {};
+
+        $("td").each(function () {
+            console.log($(this).closest("table th").eq($(this).index()).html());
+            ticket[$(this).closest("table th").eq($(this).index()).html()] = $(this).val(); 
+        })
+
+        //ticket["comments"] .= $("#textarea").val();
+
+        console.log(ticket);
+
+        $.post("includes/updateTicket.php", ticket, function(returnData) {
+            $("table").fadeOut(500);
+            $(returnData).hide().appendTo("#view-results").fadeIn(500);
+        })
+    })
+});</script>';
+
 echo $string;
