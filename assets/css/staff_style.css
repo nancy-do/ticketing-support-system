@@ -20,7 +20,7 @@ ul.topnav
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #252b33;
 }
 
 .box
@@ -35,14 +35,15 @@ ul.topnav
 ul.topnav li
 {
     font-family: 'Baloo Paaji', cursive;
-    float: left;
+    float: right;
 }
 
 /* Style the links inside the list items */
 ul.topnav li a
 {
     display: inline-block;
-    color: #b52b4a;
+    background-color: #252b33;
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -53,7 +54,10 @@ ul.topnav li a
 /* Change background color of links on hover */
 ul.topnav li a:hover
 {
-    background-color: #ffffff;
+    -moz-box-shadow: 0 0 1px #ccc;
+    -webkit-box-shadow: 0 0 1px #ccc;
+    box-shadow: 0 0 1px #ccc;
+    background-color: ;
 }
 
 ul.topnav li.icon
@@ -69,19 +73,27 @@ ul.topnav li.icon
 
     ul.topnav li.icon
     {
-        float: right;
+        float: left;
         display: inline-block;
     }
 }
 
-@media screen and (max-width:680px) {
-    ul.topnav.responsive {position: relative;}
-    ul.topnav.responsive li.icon {
+@media screen and (max-width:680px)
+{
+    ul.topnav.responsive
+    {
+        position: relative;
+    }
+
+    ul.topnav.responsive li.icon
+    {
         position: absolute;
         right: 0;
         top: 0;
     }
-    ul.topnav.responsive li {
+
+    ul.topnav.responsive li
+    {
         float: none;
         display: inline;
     }
@@ -91,7 +103,7 @@ ul.topnav li.icon
     }
 }
 
-#rcorners1
+#berryBackground
 {
     color: #ffffff;
     background: #b52b4a;
@@ -156,7 +168,7 @@ ul.topnav li.icon
 .sliding-middle-out:hover:after
 {
     width: 100%;
-    background: #b52b4a;
+    background: #ffffff;
 }
 
 footer
