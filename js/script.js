@@ -2,7 +2,7 @@
  * Created by WaiTung on 13/08/2016.
  */
 
-const FADETIME = 500;
+const FADE_TIME = 500;
 
 $(document).ready(function()
 {
@@ -11,10 +11,10 @@ $(document).ready(function()
         var data = $(this).serialize();
 
         $.get("includes/submit.php", data, function(returnData) {
-            $("#reg-ticket").fadeOut(FADETIME);
-            $("#reg-form").fadeOut(FADETIME);
+            $("#reg-ticket").fadeOut(FADE_TIME);
+            $("#reg-form").fadeOut(FADE_TIME);
             $(":animated").promise().done(function() {
-                $(returnData).hide().appendTo(".result").fadeIn(FADETIME);
+                $(returnData).hide().appendTo(".result").fadeIn(FADE_TIME);
             })
         })
 
@@ -26,10 +26,10 @@ $(document).ready(function()
         var data = $(this).serialize();
 
         $.get("includes/view-ticket.php", data, function(returnData) {
-            $("#submit-info").fadeOut(FADETIME);
-            $("#view-info").fadeOut(FADETIME);
+            $("#submit-info").fadeOut(FADE_TIME);
+            $("#view-info").fadeOut(FADE_TIME);
             $(":animated").promise().done(function() {
-                $(returnData).hide().appendTo("#view-results").fadeIn(FADETIME);
+                $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
             })
         })
 
@@ -41,9 +41,9 @@ $(document).ready(function()
         var data = $(this).serialize();
 
         $.get("includes/results.php", data, function(returnData) {
-            $("#staff-login-container").fadeOut(FADETIME);
+            $("#staff-login-container").fadeOut(FADE_TIME);
             $(":animated").promise().done(function() {
-                $(returnData).hide().appendTo("#staff-results-container").fadeIn(FADETIME);
+                $(returnData).hide().appendTo("#staff-results-container").fadeIn(FADE_TIME);
             })
         })
 
