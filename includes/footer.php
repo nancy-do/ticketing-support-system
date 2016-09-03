@@ -17,7 +17,6 @@
     <script src="assets/js/toggle.js"></script>
     <script src="assets/js/submit.js"></script>
     <script src="assets/js/search.js"></script>
-    <script src="assets/js/addComments.js"></script>
     <script src="assets/js/validateForm.js"></script>
     <script src="assets/js/stickyNavbar.js"></script>
     <script src="assets/js/jsfiddle.js"></script>
