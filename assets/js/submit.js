@@ -48,6 +48,25 @@ $(document).on('submit', '#staff-login-form', function()
     return false;
 });
 
+$(document).on("click", ".editTicket", function() {
+    $("table").fadeOut(FADE_TIME);
+    var data = {}
+
+    // fill array with ids and values
+    $.each($(this).closest("tr").children("td"), function() {
+        data[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "").toLowerCase()] = $(this).text();
+    })
+
+    // now populate the inputs
+    $.each(data, function(id, value) {
+        $("#" + id).val(value);
+    })
+
+    $(":animated").promise().done(function() {
+        $(".editBox").slideToggle("slow");
+    })
+});
+
 $(document).on('click', "#addComments", function() {
 
     $("#comments").fadeIn(FADE_TIME);
@@ -56,6 +75,7 @@ $(document).on('click', "#addComments", function() {
 
         $("table").fadeOut(FADE_TIME);
         $("#comments").fadeOut(FADE_TIME);
+        $("#addComments").fadeOut(FADE_TIME);
 
         var ticket = {};
 
@@ -66,10 +86,7 @@ $(document).on('click', "#addComments", function() {
 
         ticket["comments"] += $("#commentsBox").val();
 
-        console.log(ticket);
-
         $.post("includes/updateTicket.php", ticket, function(returnData) {
-            console.log(returnData);
             $(":animated").promise().done(function() {
                 $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
             })
