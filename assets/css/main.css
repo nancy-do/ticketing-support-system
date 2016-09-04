@@ -526,6 +526,9 @@ th {
 td, th {
     border: 1px solid #ccc;
     text-align: left;
+    padding: 10px;
+    max-width: 500px;
+
 }
 
 .pricing-option {
@@ -663,35 +666,6 @@ td, th {
     text-align: center;
 }
 
-.editBox label {
-    color: #648880;
-    cursor: pointer;
-    font-weight: 400;
-}
-.editBox input,
-.editBox select,
-.editBox textarea {
-    border: 1px solid #c6c9cc;
-    border-radius: 5px;
-    color: #000;
-    display: block;
-    margin: 5px 0 27px 0;
-    padding: 5px 8px;
-}
-.editBox input,
-.editBox textarea {
-    width: 100%;
-}
-.editBox select {
-    height: 34px;
-}
-.editBox textarea {
-    height: 78px;
-}
-
-#staff-results-container > div > div.editBox > button.btn.btn-danger.back {
-    margin: 27px 100% 27px 0;
-}
 select {
     text-align-last: center;
 }
@@ -734,6 +708,7 @@ select {
 }
 
 #table {
+    margin-left: -50px;
     margin-top: 80px;
     margin-bottom: 40px;
 }

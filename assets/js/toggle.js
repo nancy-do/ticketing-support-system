@@ -12,4 +12,5 @@ $(document).ready(function(){
         $(".col-lg-6").show("slow");
         $("#form").slideToggle("slow");
     });
+
 });

@@ -7,7 +7,7 @@
  */
 include('TicketPDO.php');
 //$key = "a2u0i1i6n";
-$key = "password"; // temp
+$key = "a"; // temp
 $id = null;
 
 if($_GET)
@@ -23,7 +23,7 @@ if($_GET)
         if (strcmp($id, $key) == 0)
         {
             $string = ' <div class="row"><div class="col-sm-6 col-sm-offset-3">
-                            <div class="input-group stylish-input-group">
+                            <div id="search-container" class="input-group stylish-input-group">
                                 <input type="text" id="search" class="form-control"  placeholder="Search" >
                                 <span class="input-group-addon">
                                     <button type="submit">
@@ -74,32 +74,72 @@ if($_GET)
             $string .= "</table>";
             //$string .= "</tbody></table>";
 
-            // for staff ticket editing
-            $string .= '<div class="editBox">
+            /* tried to implement back to staff edits page
+                            * only successful on first back however after multiple tries it reloads results several times
+                            <form id="staff-login-form" action = "index.php?page=results" method = "GET">
+                                <input required type="hidden" name ="staffKey" id ="staffKey" value = "'.$key.'"autocapitalize="words"/>
+                                <button id= "edit-boc-btn" class="btn btn-danger back">Back</button>
+                            </form>
+                            */
 
-                            <button class="btn btn-danger back">Back</button>
-                            <label>ID:</label><input type="text" id="id" disabled>
-                            <label>First Name:</label><input type="text" id="firstname">
-                            <label>Last Name:</label><input type="text" id="lastname">
-                            <label>Email:</label><input type="text" id="email">
-                            <label>OS:</label><input type="text" id="os">
-                            <label>Issue:</label><input type="text" id="issue">
-                            <label>Comments:</label><textarea id="comments"></textarea>
-                            <label>Status:</label><select id="status">
+            // for staff ticket editing
+            $string .= '<div class="editBox">';
+
+            //BUTTON OPTIONS (SECOND ONE IS A BIT BUGGY)
+            //***************OPT 1
+            $string .= '<button id = \'view-ticket-btn\' onclick="window.location.href=\'?page=home\'" class=\'btn btn-danger\'>Back</button>';
+
+            //**************OPT 2
+            /*$string .= '<form id="staff-login-form" action = "index.php?page=results" method = "GET">
+                                <input required type="hidden" name ="staffKey" id ="staffKey" value = "'.$key.'"autocapitalize="words"/>
+                                <button id= "edit-boc-btn" class="btn btn-danger back">Back</button>
+                            </form>';
+            */
+
+            $string .= '<table border="1" id="table2">
+                            <thead><tr><th>Id</th>
+                                       <th>First Name</th>
+                                       <th>Last Name</th>
+                                       <th>Email</th>
+                                       <th>OS</th>
+                                       <th>Issue</th>
+                                       <th>Comments</th>
+                            </tr></thead>
+                            <tbody><tr>
+                            <td id="id" ></td>
+                            <td id="firstname"></td>
+                            <td id="lastname"></td>
+                            <td id="email"></td>
+                            <td id="os"></td>
+                            <td id="issue"></td>
+                            <td id="comments"> </td>
+                            </tr>  </tbody></table>
+                            <br><br><br>
+                            
+                            <div class="col-lg-6">
+                            <label>Comments:</label><textarea id="commentsBox" cols="30" rows="10"></textarea>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <label>Status:</label><select id="status">
                                 <option value="PENDING">PENDING</option>
                                 <option value="UNRESOLVED">UNRESOLVED</option>
                                 <option value="INPROGRESS">IN PROGRESS</option>
                                 <option value="COMPLETE">COMPLETE</option>
-                            </select>
-                            <button id="updateTicket" class="btn btn-danger">Update Ticket</button>
-                            
+                                </select> 
+                            </div>
+                            <button id="updateTicket" class="btn btn-danger">Update ticket</button>
+                         
                         </div>';
 
             echo $string;
         }
         else
         {
-            echo "<div class='container w'><div class='row centered'><div class='col-lg-12'><h3>COULD NOT LOGIN</h3><p><strong>WARNING - You have entered an incorrect password</strong></p></div></div></div>";
+            echo "<div class='container w'>
+                    <div class='row centered'>
+                        <div class='col-lg-12'><h3>COULD NOT LOGIN</h3><p><strong>WARNING - You have entered an incorrect password</strong></p>
+                        </div></div></div>";
         }
 
         ?>

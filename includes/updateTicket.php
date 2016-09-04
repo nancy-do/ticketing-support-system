@@ -47,6 +47,7 @@ if (!isset($ticket))
     return;
 }
 
+/*
 $string = "<div class='col-lg-12'>";
 $string .= "<table border=1>";
 $string .= "<thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Email</th><th>OS</th><th>Issue</th><th>Comments</th><th>Status</th></tr></thead>";
@@ -67,7 +68,8 @@ foreach ($ticket->getComments() as $comment)
 
 $string .= "</td>";
 $string .= "<td>" . $ticket->getStatus() . "</td>";
-$string .= "</tr></tbody></table> 
+$string .= "</tr></tbody></table><br><br>
             <button id = 'view-ticket-btn' onclick=\"window.location.href='?page=home'\" class='btn btn-danger'>Back</button></div>";
 
 echo $string;
+*/
