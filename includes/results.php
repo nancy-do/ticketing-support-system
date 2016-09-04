@@ -76,6 +76,7 @@ if($_GET)
 
             // for staff ticket editing
             $string .= '<div class="editBox">
+
                             <button class="btn btn-danger back">Back</button>
                             <label>ID:</label><input type="text" id="id" disabled>
                             <label>First Name:</label><input type="text" id="firstname">
@@ -83,14 +84,15 @@ if($_GET)
                             <label>Email:</label><input type="text" id="email">
                             <label>OS:</label><input type="text" id="os">
                             <label>Issue:</label><input type="text" id="issue">
-                            <label>Comments:</label><textarea id="comments" cols="30" rows="10"></textarea>
+                            <label>Comments:</label><textarea id="comments"></textarea>
                             <label>Status:</label><select id="status">
                                 <option value="PENDING">PENDING</option>
                                 <option value="UNRESOLVED">UNRESOLVED</option>
                                 <option value="INPROGRESS">IN PROGRESS</option>
                                 <option value="COMPLETE">COMPLETE</option>
                             </select>
-                            <button id="updateTicket" class="btn btn-danger">Update ticket</button>
+                            <button id="updateTicket" class="btn btn-danger">Update Ticket</button>
+                            
                         </div>';
 
             echo $string;
