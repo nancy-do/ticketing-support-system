@@ -7,7 +7,7 @@ const TICKET_VARS = ["id", "firstname", "lastname", "email", "os", "issue", "sta
 
 function postToServer(script, data, appendResult) {
     $.post(script, data, function(returnData) {
-        $("animated").promise().done(function() {
+        $(":animated").promise().done(function() {
             $(returnData).appendTo(appendResult).fadeIn(FADE_TIME);
         });
     });
@@ -47,6 +47,15 @@ $(document).on('submit', '#viewform', function()
         $("#view-info").fadeOut(FADE_TIME);
         $(":animated").promise().done(function() {
             $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
+
+            // disable add comments if ticket status == completed
+            $.each($("th"), function (k, v) {
+                if ($(v).text().toLowerCase() === "status") {
+                    if ($("table").find("td").eq(k).text() === "COMPLETE") {
+                        $("#addComments").prop("disabled", true);
+                    }
+                }
+            })
         })
     })
 
@@ -64,6 +73,8 @@ $(document).on('click', '#back-ticket', function()
 
 $(document).on('submit', '#staff-login-form', function()
 {
+    // prevent multiple requests to server by disabling the button
+    $(this).children(".btn").prop("disabled", true);
     var data = $(this).serialize();
 
     $.get("includes/results.php", data, function(returnData) {
@@ -111,12 +122,6 @@ $(document).on('click', "#addComments", function() {
         ticket["comments"] += $("#commentsBox").val();
 
         postToServer("includes/updateTicket.php", ticket, "#view-results");
-
-        // $.post("includes/updateTicket.php", ticket, function(returnData) {
-        //     $(":animated").promise().done(function() {
-        //         $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
-        //     })
-        // })
     })
 });
 
@@ -162,9 +167,9 @@ $(document).on("click", ".editTicket", function() {
         })
 
 
-        ticket["comments"] += "<br /><br />";
+        ticket["comments"] += "<p>";
         ticket["comments"] += "******* STAFF SOLUTION *******";
-        ticket["comments"] += "<br /><br />";
+        ticket["comments"] += "<p>";
         ticket["comments"] += $("#commentsBox").val();
         ticket["status"] = $("#status").val();
 
