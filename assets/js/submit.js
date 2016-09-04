@@ -83,6 +83,23 @@ $(document).on('submit', '#staff-login-form', function()
         $("#staff-login-container").fadeOut(FADE_TIME);
         $(":animated").promise().done(function() {
             $(returnData).hide().appendTo("#staff-results-container").fadeIn(FADE_TIME);
+
+            // for each table check the status column for complete, then disable button
+            /*$.each($("tr"), function (k, v) {
+
+                if ($(v).children().text() === "COMPLETE")
+                {
+                    $(v).children().find("button").prop("disabled", true);
+                }
+
+                // var th = $(v).children("th").text() === "Status";
+                // console.log(v);
+                // console.log($(v).find("td").eq($(th).index() - 1).text());
+                // console.log($(v).find("td").eq($(th).index()).text());
+                // if ($(v).find("td").eq($(th).index()).text() === "COMPLETE") {
+                //     $(v).find(".editTicket").prop("disabled", true);
+                // }
+            })*/
         })
     })
 
