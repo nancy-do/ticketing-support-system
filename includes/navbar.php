@@ -16,6 +16,7 @@
         <li class="active"><a href='index.php?page=home'>Home</a></li>
         <li><a href='index.php?page=staff'>Staff</a></li>
         <li><a href='index.php?page=faqs'>Faqs</a></li>
+        <li><a href='staff.php'>Bonus</a></li>
         <!-- <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li> -->
       </ul>
     </div><!--/.nav-collapse -->
