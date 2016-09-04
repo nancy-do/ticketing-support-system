@@ -47,19 +47,18 @@ $(document).on('submit', '#viewform', function()
         $("#view-info").fadeOut(FADE_TIME);
         $(":animated").promise().done(function() {
             $(returnData).hide().appendTo("#view-results").fadeIn(FADE_TIME);
+            // disable add comments if ticket status == completed
+            $.each($("th"), function (k, v) {
+                if ($(v).text().toLowerCase() === "status") {
+                    if ($("table").find("td").eq(k).text() === "COMPLETE") {
+                        var p = document.createElement("p");
+                        $(p).text("This ticket has been closed, and comments can no longer be added");
+                        $(p).appendTo("#view-results").fadeIn(FADE_TIME);
+                        $("#addComments").prop("disabled", true);
+                    }
+                }
+            })
         })
-    })
-
-    // disable add comments if ticket status == completed
-    $.each($("th"), function (k, v) {
-        if ($(v).text().toLowerCase() === "status") {
-            if ($("table").find("td").eq(k).text() === "COMPLETE") {
-                var p = document.createElement("p");
-                $(p).text("This ticket has been closed, and comments can no longer be added");
-                $(p).appendTo("#view-results").fadeIn(FADE_TIME);
-                $("#addComments").prop("disabled", true);
-            }
-        }
     })
 
     return false;
