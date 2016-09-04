@@ -14,6 +14,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/toggle.js"></script>
     <script src="assets/js/submit.js"></script>
     <script src="assets/js/search.js"></script>
