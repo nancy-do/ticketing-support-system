@@ -117,18 +117,23 @@ if($_GET)
                             <br><br><br>
                             
                             <div class="col-lg-6">
-                            <label>Comments:</label><textarea id="commentsBox" cols="30" rows="10"></textarea>
+                            <h4>REPLY TO TICKET</h4>
+                            <textarea id="commentsBox" cols="30" rows="10"></textarea>
                             </div>
                             
                             <div class="col-lg-6">
-                                <label>Status:</label><select id="status">
+                            <h4>UPDATE TICKET</h4>
+                                <select id="status">
                                 <option value="PENDING">PENDING</option>
                                 <option value="UNRESOLVED">UNRESOLVED</option>
                                 <option value="INPROGRESS">IN PROGRESS</option>
                                 <option value="COMPLETE">COMPLETE</option>
-                                </select> 
+                                </select>
+                                
+                                <br><br><br><br><br><br>
+                                <button id="updateTicket" class="btn btn-danger">Update ticket</button>
                             </div>
-                            <button id="updateTicket" class="btn btn-danger">Update ticket</button>
+                            
                          
                         </div>';
 
