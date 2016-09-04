@@ -28,7 +28,8 @@ ul.topnav
     border: 1px solid white;
     padding: 1%;
     margin: auto;
-    width: 21%;
+    width: 30%;
+    position: relative;
 }
 
 /* Float the list items side by side */
@@ -71,9 +72,13 @@ ul.topnav li.icon
         display: none;
     }
 
+    ul.topnav li:not(:nth-child(2)) {
+        display: none;
+    }
+
     ul.topnav li.icon
     {
-        float: left;
+        float: right;
         display: inline-block;
     }
 }
@@ -116,6 +121,7 @@ ul.topnav li.icon
 {
     text-align: center;
     font-family: 'Lato', sans-serif;
+    font-size: 2vw;
 }
 
 .Button
@@ -191,6 +197,7 @@ footer
     bottom: 0;
     height: auto;
     width: 100%;
+    font-size: 2vw;
 }
 
 .sub
