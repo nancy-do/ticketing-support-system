@@ -13,8 +13,8 @@
 
 <body>
 <ul class="topnav" id="myTopnav">
-    <li class="sliding-middle-out"><a href="#Home">Home</a></li>
     <li class="sliding-middle-out"><a href="#faqs">FAQs</a></li>
+    <li class="sliding-middle-out"><a href="#Home">Home</a></li>
     <li class="icon">
         <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
     </li>
