@@ -7,7 +7,7 @@
  */
 include('TicketPDO.php');
 //$key = "a2u0i1i6n";
-$key = "a"; // temp
+$key = "password"; // temp
 $id = null;
 
 if($_GET)
@@ -53,7 +53,7 @@ if($_GET)
             foreach ($ticketIDs as $id)
             {
                 $ticket = $pdo->getIdData($id['ticket_id']);
-                $string .= "<tr><tbody>";
+                $string .= "<tbody><tr>";
                 $string .= "<td>" . $id['ticket_id'] . "</td>";
                 $string .= "<td>" . $ticket->getFirstName() . "</td>";
                 $string .= "<td>" . $ticket->getLastName() . "</td>";
@@ -69,7 +69,7 @@ if($_GET)
 
                 $string .= "</td>";
                 $string .= "<td>" . $ticket->getStatus() . "</td>";
-                $string .= "<td><button class='btn btn-danger editTicket'>Manage</button></td></tbody></tr>";
+                $string .= "<td><div class='wrapper'><button class='btn btn-danger editTicket'>Manage</button></td></div></tr></tbody>";
             }
             $string .= "</table>";
             //$string .= "</tbody></table>";

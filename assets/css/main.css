@@ -94,6 +94,17 @@ body {
 
 }
 
+@media (min-width: 996px) {
+    td, th {
+        padding: 10px;
+        max-width: 500px;
+    }
+
+    .wrapper {
+        text-align: center;
+    }
+}
+
 @media (min-width: 1200px) {
     /* style goes here */
     #reg-ticket {
@@ -174,8 +185,7 @@ and also iPads specifically.
     td:nth-of-type(6):before { content: "Issue"; }
     td:nth-of-type(7):before { content: "Comment"; }
     td:nth-of-type(8):before { content: "Status"; }
-    td:nth-of-type(9):before { content: "Replies/comments"; }
-    td:nth-of-type(10):before { content: "Update"; }
+    td:nth-of-type(9):before { content: "Ticket Management"; }
 
 
 }
@@ -516,9 +526,6 @@ th {
 td, th {
     border: 1px solid #ccc;
     text-align: left;
-    padding: 10px;
-    max-width: 500px;
-
 }
 
 .pricing-option {
@@ -698,7 +705,6 @@ select {
 }
 
 #table {
-    margin-left: -50px;
     margin-top: 80px;
     margin-bottom: 40px;
 }
@@ -707,6 +713,9 @@ select {
     text-align: center;
 }
 
+#comment-back-opt {
+    padding-top: 30px;
+}
 
 /*##################################################################################################################################################
 ################################################# NEW ADDITIONS BY ANTHONY PLEASE CHANGE WHEN FIXING ##############################################
@@ -714,7 +723,6 @@ select {
 
 /* commented out line 499 */
 table {
-    margin: 5%;
     width: 100%;
     border-collapse: collapse;
 }

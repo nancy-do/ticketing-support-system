@@ -12,6 +12,7 @@ $commentsArray = explode("\n", $_POST["comments"]);
 
 // post var keys must be lower case unless someone can change js to adjust them to camelcase
 $updTicket = new Ticket($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["os"], $_POST["issue"], $_POST["status"], $commentsArray, $_POST["id"]);
+
 $id = $_POST["id"];
 $oldTicket = $pdo->getIdData($id);
 
