@@ -56,7 +56,7 @@
     </script>
 <footer>
     <p>ITS <img src="assets/img/circle.png"> RMIT</p>
-    <p class="sub">trusted by students nowhere.</p>
+    <p class="sub">trusted by students campus-wide.</p>
 </footer>
 </html>
 
