@@ -120,8 +120,14 @@ $(document).on('click', "#addComments", function() {
     })
 });
 
+$(document).on("click", "#edit-boc-btn", function() {
+    $(".editBox").fadeOut(FADE_TIME);
+});
+
+
 $(document).on("click", ".editTicket", function() {
-    $("table").fadeOut(FADE_TIME);
+    $("#table").fadeOut(FADE_TIME);
+    $("#search-container").fadeOut(FADE_TIME);
     var data = constructTicketArray();
 
     // fill array with ids and values
@@ -131,7 +137,15 @@ $(document).on("click", ".editTicket", function() {
 
     // now populate the inputs
     $.each(data, function(id, value) {
-        $("#" + id).val(value);
+
+        if (id == "status")
+        {
+            $("#" + id).val(value);
+        }
+        else
+        {
+            $( "#" + id ).text(value);
+        }
     })
 
     $(":animated").promise().done(function() {
@@ -142,11 +156,19 @@ $(document).on("click", ".editTicket", function() {
 
     $("#updateTicket").click(function() {
         $(".editBox").slideToggle(FADE_TIME);
-        $.each($(".editBox").children(), function() {
-            ticket[$(this).prop("id")] = $(this).val();
+
+        $("td").each(function () {
+            ticket[$(this).closest("table").find("th").eq($(this).index()).text().replace(/\s+/g, "").toLowerCase()] = $(this).text();
         })
 
+
+        ticket["comments"] += "<br /><br />";
+        ticket["comments"] += "******* STAFF SOLUTION *******";
+        ticket["comments"] += "<br /><br />";
+        ticket["comments"] += $("#commentsBox").val();
+        ticket["status"] = $("#status").val();
+
         // append to row for now - PLEASE CHANGE (i did this at 5am)
-        postToServer("includes/updateTicket.php", ticket, ".row");
+        postToServer("includes/updateTicket.php", ticket, "#results-staff-edits");
     })
 });
